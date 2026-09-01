@@ -8,3 +8,6 @@ def home():
     return render_template("template.html")
 
 
+@app.route("/hello")
+def hello():
+    return "Hello, World!"
