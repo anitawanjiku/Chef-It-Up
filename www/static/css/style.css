@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-p {
+p, ol {
     color: #000000;
     font-family: "Georgia", "Times New Roman", serif;
     text-align: justify;
