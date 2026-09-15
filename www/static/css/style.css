@@ -114,5 +114,7 @@ div.three_meals {
 }
 
 div.meal_square {
-	padding: 10px;
+	margin: 10px;
+    padding-inline: 10px;
+    border: #0D47A1, solid, 5px;
 }
