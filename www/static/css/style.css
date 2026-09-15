@@ -82,3 +82,15 @@ p, ol {
     font-family: "Georgia", "Times New Roman", serif;
     text-align: justify;
 }
+
+div.section{
+    display: flex;
+    justify-content:space-between;
+}
+
+div.form{
+    display: flex;
+    justify-content:space-between ;
+    align-items: flex-end;
+
+}
