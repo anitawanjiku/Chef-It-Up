@@ -34,10 +34,33 @@ span.logo {
 
 button.hamburger {
     display: flex;
+    background-color: #90CAF9;
+    height: 70px;
+    width: auto;
+    border: none;
+    margin-left: 15px;
+    padding: 5px;
 }
 
-button.searchbar {
+div.search {
     display: flex;
+    margin-right: 15px;
+    align-items: center;
+}
+
+button.searchbutton {
+    display: flex;
+    background-color: #90CAF9;
+    height: 70px;
+    width: auto;
+    border: none;
+    padding: 5px;
+}
+
+input.searchbar {
+    display: flex;
+    height: 20px;
+    width: auto;
 }
 
 body {
