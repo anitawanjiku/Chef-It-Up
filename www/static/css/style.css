@@ -59,3 +59,32 @@ p, ol {
     font-family: "Georgia", "Times New Roman", serif;
     text-align: justify;
 }
+
+/* Home page specific CSS */
+img.home_logo {
+    display: block; 
+    margin: auto;
+    margin-top: 10px;
+    width: 25%;
+}
+
+h1.home_title {
+    font-size: 60;
+}
+
+div.three_meals {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0px 30px;
+}
+
+div.meal_square {
+	padding: 10px;
+}
+
+ul {
+	list-style-type: none;
+	display: flex;
+}
+
