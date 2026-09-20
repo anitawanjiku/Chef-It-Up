@@ -6,19 +6,9 @@ function searchBar() {
     searchIcon.outerHTML = '<input class="searchbar" type="text" placeholder="Search..."></input>';
 }
 
-function myFunction(){
-    document.getElementById("myDropdown").classList.toggle("show");
+function hambugerMenu(document){
+    var newElement = document.createElement('p');
+    newElement.textContent = 'Hello, World!';
+    document.getElementByID('HBButton').appendChild(newElement);
 }
 
-window.onclick = function(event){
-    if(!event.target.matches('.dropbtn')){
-        var dropdowns = this.document.getElementsByClassName("hamburger");
-        var i;
-        for(i = 0; i < dropdowns.length; i++){
-            var openDropdown = downdowns[i];
-            if(openDropdown.classList.contains('show')){
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
