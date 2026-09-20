@@ -11,11 +11,17 @@
     <body class="fullscreen-element">
         <header class="navbar">
             <!-- Hamburger Button -->
-            <button class="hamburger" aria-label="Toggle navigation">
-                <img class="hamburger-icon" src="static/img/hamburger_menu.png">
-                <!-- <a href="https://www.flaticon.com/free-icons/hamburguer-menu"
-                title="hamburguer menu icons">Hamburguer menu icons created by Katerine Melina - Flaticon</a> -->
-            </button>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">
+                    <img class="hamburger-icon" src="static/img/hamburger_menu.png">
+                    <!-- <a href="https://www.flaticon.com/free-icons/hamburguer-menu"
+                    title="hamburguer menu icons">Hamburguer menu icons created by Katerine Melina - Flaticon</a> -->
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="chefituphome.html">Home</a>
+                    <a href="chefitupabout.html">About</a>
+                </div>
+            </div>
 
             <!-- Chef It Up logo -->
             <div class="logo">
