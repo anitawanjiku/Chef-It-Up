@@ -8,14 +8,6 @@ header {
     top: 0px;
 }
 
-/* Applies to screens 1024 px (Mobile first focus) or larger*/
-@media screen and (min-width: 1024px){
-    .container{
-        display: grid;
-        grid-template-columns: repeat(93, 1fr);
-    }
-}
-
 /* nav.topnav {
     background-color: #90CAF9;
     display: flex;
