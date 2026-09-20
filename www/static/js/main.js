@@ -6,8 +6,10 @@ function searchBar() {
     searchIcon.outerHTML = '<input class="searchbar" type="text" placeholder="Search..."></input>';
 }
 
-function myFunction(){
-    document.getElementById("myDropdown").classList.toggle("show");
+function hambugerMenu(document){
+    var newElement = document.createElement('p');
+    newElement.textContent = 'Hello, World!';
+    document.getElementByID('HBButton').appendChild(newElement);
 }
 
 window.onclick = function(event){
