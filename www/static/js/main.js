@@ -6,15 +6,15 @@ function searchBar() {
     searchIcon.outerHTML = '<input class="searchbar" type="text" placeholder="Search..."></input>';
 }
 
-
+// W3 schools support code adapted to our neccesities on how to work our way through the hamburgeuer menu. 
 function myFunction(){
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
 window.onclick = function(event){
     if(!event.target.matches('.dropbtn')){
-        var dropdowns = this.document.getElementsByClassName("dropdown-content");
-        var i;
+        let dropdowns = this.document.getElementsByClassName("dropdown-content");
+        let i;
         for(i = 0; i < dropdowns.length; i++){
             var openDropdown = downdowns[i];
             if(openDropdown.classList.contains('show')){
