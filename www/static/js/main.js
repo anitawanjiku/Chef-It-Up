@@ -6,8 +6,8 @@ function searchBar() {
     searchIcon.outerHTML = '<input class="searchbar" type="text" placeholder="Search..."></input>';
 }
 
-// W3 schools support code adapted to our neccesities on how to work our way through the hamburgeuer menu. 
-function myFunction(){
+// W3 schools support code adapted to our neccesities on how to work our way through the hamburger menu. 
+function dropdownMenu(){
     document.getElementById("myDropdown").classList.toggle("show");
 }
 

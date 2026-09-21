@@ -8,13 +8,8 @@ header {
     top: 0px;
 }
 
-/* nav.topnav {
-    background-color: #90CAF9;
-    display: flex;
-    padding: 5px;
-    position: sticky;
-} */
 
+/* Logo */
 div.logo {
     background-color: #90CAF9;
     display: flex;
@@ -32,6 +27,8 @@ span.logo {
     font-size: 70px;
 }
 
+
+/* Search Bar */
 div.search {
     display: flex;
     margin-right: 15px;
@@ -53,63 +50,8 @@ input.searchbar {
     width: auto;
 }
 
-body {
-    background-color: #E3F2FD; /*make lighter??*/
-    color: #000000;
-    font-family: serif;
-    margin: 4rem 2rem;
-    padding: 0 1rem;
-}
 
-h1, h2, h3, h4, h5, h6 {
-    color: #0D47A1;
-    font-family: "Playfair Display", "Times New Roman", serif;
-    text-align: center;
-}
-
-p, ol {
-    color: #000000;
-    font-family: "Georgia", "Times New Roman", serif;
-    text-align: justify;
-}
-
-div.section{
-    display: flex;
-    justify-content:space-evenly;
-}
-
-div.form{
-    display: flex;
-    justify-content:space-evenly ;
-    align-items: flex-end;
-}
-
-/* Home page specific CSS */
-img.home_logo {
-    display: block; 
-    margin: auto;
-    margin-top: 10px;
-    width: 25%;
-}
-
-h1.home_title {
-    font-size: 60;
-}
-
-div.three_meals {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 0px 30px;
-}
-
-div.meal_square {
-	margin: 10px;
-    padding-inline: 10px;
-    border: #0D47A1, solid, 5px;
-}
-
-/*Hamburger*/
+/* Hamburger */
 .dropbtn {
     display: flex;
     background-color: #90CAF9;
@@ -160,7 +102,72 @@ div.meal_square {
 .show {display:block;}
 
 
-/* We started, we know we need it for the phone header, and then also we can do light vs dark more8/
+body {
+    background-color: #E3F2FD; /*make lighter??*/
+    color: #000000;
+    font-family: serif;
+    margin: 4rem 2rem;
+    padding: 0 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #0D47A1;
+    font-family: "Playfair Display", "Times New Roman", serif;
+    text-align: center;
+}
+
+p, ol {
+    color: #000000;
+    font-family: "Georgia", "Times New Roman", serif;
+    text-align: justify;
+}
+
+div.section{
+    display: flex;
+    justify-content:space-evenly;
+}
+
+div.form{
+    display: flex;
+    justify-content:space-evenly ;
+    align-items: flex-end;
+}
+
+
+/* Home-page specific CSS */
+img.home_logo {
+    display: block; 
+    margin: auto;
+    margin-top: 10px;
+    width: 25%;
+}
+
+h1.home_title {
+    font-size: 60;
+}
+
+div.three_meals {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0px 30px;
+}
+
+div.meal_square {
+	margin: 10px;
+    padding-inline: 10px;
+    border: #0D47A1, solid, 5px;
+}
+
+
+/* About-page specific CSS */
+#userinput {
+    width: 300px;
+    height: 300px;
+}
+
+
+/* We started, we know we need it for the phone header, and then also we can do light vs dark mode */
 /* mobile phone first approach Applies to screens 1024px wide and larger (Laptops/Desktops) */
 @media screen and (min-width: 1024px) {
   .container {
