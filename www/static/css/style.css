@@ -165,6 +165,7 @@ div.meal_square {
     width: 300px;
     height: 300px;
 }
+/* need to adjust where cursor starts */
 
 
 /* We started, we know we need it for the phone header, and then also we can do light vs dark mode */
