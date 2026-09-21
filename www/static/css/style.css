@@ -160,7 +160,7 @@ div.meal_square {
 .show {display:block;}
 
 
-
+/* We started, we know we need it for the phone header, and then also we can do light vs dark more8/
 /* mobile phone first approach Applies to screens 1024px wide and larger (Laptops/Desktops) */
 @media screen and (min-width: 1024px) {
   .container {
