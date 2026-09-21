@@ -166,3 +166,12 @@ div.meal_square {
 }
 
 .show {display:block;}
+
+
+
+/* mobile phone first approach Applies to screens 1024px wide and larger (Laptops/Desktops) */
+@media screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+  }
+}
