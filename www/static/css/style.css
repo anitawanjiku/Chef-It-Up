@@ -1,25 +1,33 @@
-header {
-    background-color: #90CAF9;
-    display: flex;
-    padding: 10px;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0px;
+/* body CSS */
+
+/* background color light vs dark mode */
+body.light-mode {
+    background-color: #E3F2FD;
+    color: #000000;
+}
+
+body.light-mode h1, h2, h3, h4, h5, h6 {
+    color: #0D47A1;
+}
+
+body.dark-mode {
+    background-color: #E3F2FD;
+    color: #000000;
+}
+
+body.dark-mode h1, h2, h3, h4, h5, h6 {
+    color: #0D47A1;
 }
 
 
-/* body css rules */
+/* basic body rules */
 body {
-    background-color: #E3F2FD; /*make lighter??*/
-    color: #000000;
     font-family: "Playfair Display", "Times New Roman", serif;
     margin: 4rem 2rem;
     padding: 0 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #0D47A1;
     font-family: "Playfair Display", "Times New Roman", serif;
     text-align: center;
 }
@@ -40,6 +48,17 @@ p.team {
 }
 
 
+/* header CSS */
+header {
+    background-color: #90CAF9;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+}
+
 /* Logo */
 div.logo {
     background-color: #90CAF9;
@@ -58,7 +77,6 @@ span.logo {
     font-size: 70px;
     font-family: "Playfair Display", "Times New Roman", serif;
 }
-
 
 /* Search Bar */
 div.search {
@@ -81,7 +99,6 @@ input.searchbar {
     height: 20px;
     width: auto;
 }
-
 
 /* Hamburger Menu */
 .dropbtn {
