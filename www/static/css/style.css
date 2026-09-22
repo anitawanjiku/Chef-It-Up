@@ -176,6 +176,7 @@ div.form{
 
 /* We started, we know we need it for the phone header, and then also we can do light vs dark mode */
 /* mobile phone first approach Applies to screens 1024px wide and larger (Laptops/Desktops) */
+/* box borders on meals of day for homepage on iphone */
 @media screen and (min-width: 1024px) {
   .container {
     display: flex;
