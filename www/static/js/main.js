@@ -3,7 +3,11 @@ console.log("main.js loaded - edit me in www/static/js/main.js");
 
 // toggle light vs dark mode
 function switchBgMode() {
-
+  let bodyColor = document.querySelector("body");
+  if (bodyColor.className === "light-mode") {
+    bodyColor.className = "dark-mode";
+  }
+  else {bodyColor.className = "light-mode"};
 }
 
 
