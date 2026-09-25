@@ -11,12 +11,12 @@ body.light-mode h1, h2, h3, h4, h5, h6 {
 }
 
 body.dark-mode {
-    background-color: #E3F2FD;
-    color: #000000;
+    background-color: #0B1626;
+    color: #E6F1FC;
 }
 
 body.dark-mode h1, h2, h3, h4, h5, h6 {
-    color: #0D47A1;
+    color: #90C8F5;
 }
 
 
