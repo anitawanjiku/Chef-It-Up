@@ -200,7 +200,7 @@ div.form{
   }
 }
 
-/*Accordion Stuf*/
+/*Accordion Stuff*/
 .accordion {
   background-color: #eee;
   color: #444;
@@ -222,6 +222,7 @@ div.form{
 .panel {
   padding: 0 18px;
   background-color: white;
-  display: none;
   overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
 }

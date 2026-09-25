@@ -20,33 +20,35 @@ function dropdownMenu() {
 }
 
 window.onclick = function(event) {
-    if(!event.target.matches('.dropbtn')){
-        let dropdowns = this.document.getElementsByClassName("dropdown-content");
-        let i;
-        for(i = 0; i < dropdowns.length; i++){
-            var openDropdown = downdowns[i];
-            if(openDropdown.classList.contains('show')){
+    if (!event.target.matches('.dropbtn')) {
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
                 openDropdown.classList.remove('show');
             }
         }
     }
 }
 
-var acc = document.getElementsByClassName("accordion");
-var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
 
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
+// W3 Schools also provided the implementation for this.
+// Claude helped us to add the first line of code 
+//"When this specific event happens on this object, run this function." 
+document.addEventListener("DOMContentLoaded", function () {
+  var acc = document.getElementsByClassName("accordion");
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+});
