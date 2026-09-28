@@ -23,7 +23,6 @@ body.dark-mode h1, h2, h3, h4, h5, h6 {
 /* basic body rules */
 body {
     font-family: "Playfair Display", "Times New Roman", serif;
-    margin: 4rem 2rem;
     padding: 0 1rem;
 }
 
