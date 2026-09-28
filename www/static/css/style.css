@@ -245,11 +245,12 @@ div.form{
 /*Accordion Stuff*/
 .accordion {
   background-color: #eee;
-  color: #444;
+  color: #0D47A1;
+  font-family: "Playfair Display", "Times New Roman", serif;
   cursor: pointer;
   padding: 18px;
   width: 100%;
-  text-align: left;
+  text-align: center;
   border: none;
   outline: none;
   transition: 0.4s;
@@ -263,7 +264,8 @@ div.form{
 /* Style the accordion panel. Note: hidden by default */
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: #E3F2FD;
+  color: #000000;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease-out;
