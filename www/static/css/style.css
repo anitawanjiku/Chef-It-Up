@@ -214,14 +214,7 @@ div.form {
 }
 
 
-/* We started, we know we need it for the phone header, and then also we can do light vs dark mode */
-/* mobile phone first approach Applies to screens 1024px wide and larger (Laptops/Desktops) */
-/* box borders on meals of day for homepage on iphone */
-/*@media screen and (min-width: 1024px) {
-  .container {
-    display: flex;
-  }
-}
+
 
 @media (min-width: 420px) {
   .header {grid-area: 1 / span 6;}
@@ -229,7 +222,7 @@ div.form {
   .content {grid-area: 2 / span 4;}
   .facts {grid-area: 2 / span 1;}
   .footer {grid-area: 3 / span 6;}
-}*/
+}
 
 @media screen and (min-width: 420px) {
   .navbar {
