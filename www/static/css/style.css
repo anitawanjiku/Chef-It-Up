@@ -204,8 +204,6 @@ div.meal_square {
 
 /* About-page specific CSS */
 div.form {
-    height: clamp (35px, 8vw, 70px);
-    width: auto;
     display: flex;
     justify-content:space-evenly ;
     align-items: flex-end;
