@@ -6,11 +6,16 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
         <script src="static/js/main.js"></script>
+        
         <meta name="viewport" content="width=device-width">
     </head>
 
     <body class="light-mode">
         <header class="navbar">
+
+            <!-- Dark & Light Mode Button -->
+            <button id="theme-toggle" onclick="switchBgMode()">Switch to Dark Mode</button>
+
             <!-- Hamburger Button -->
             <div class="dropdown">
                 <button onclick="dropdownMenu()" class="dropbtn">
@@ -26,7 +31,7 @@
 
             <!-- Chef It Up logo -->
             <div class="logo">
-                <img class="logo" src="static/img/remylogo.png" />
+                <img class="logo" src="static/img/lightremylogo.png" />
                 <span class="logo">Chef It Up</span>
             </div>
 

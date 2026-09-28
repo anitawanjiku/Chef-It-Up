@@ -6,8 +6,10 @@ function switchBgMode() {
   let bodyColor = document.querySelector("body");
   if (bodyColor.className === "light-mode") {
     bodyColor.className = "dark-mode";
+    img => img.src = "static/img/darkremylogo";
   }
   else {bodyColor.className = "light-mode"};
+  img => img.src = "static/img/lightremylogo.png";
 }
 
 
