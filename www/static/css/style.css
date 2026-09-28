@@ -203,7 +203,7 @@ div.meal_square {
 
 
 /* About-page specific CSS */
-div.form{
+div.form {
     display: flex;
     justify-content:space-evenly ;
     align-items: flex-end;
@@ -213,7 +213,6 @@ div.form{
     width: 300px;
     height: 300px;
 }
-/* need to adjust where cursor starts */
 
 
 /* We started, we know we need it for the phone header, and then also we can do light vs dark mode */
