@@ -52,7 +52,8 @@ header {
     background-color: #90CAF9;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    /*everything lines up with the hamburguer row.*/ 
     gap: 12px;
     padding: 10px;
     position: sticky;
@@ -69,6 +70,19 @@ div.logo {
     gap: 10px;
     flex: 1 1 auto;
     min-width: 0;
+    align-self: flex-end;
+}
+
+
+span.logo {
+    font-size: clamp(1rem, 3.5vw, 2.5rem);
+    font-family: "Playfair Display", "Times New Roman", serif;
+    white-space: normal;      /* was nowrap — now allowed to wrap */
+    overflow: visible;        /* was hidden — no longer clipping */
+    text-overflow: clip;      /* was ellipsis — no longer truncating */
+    text-align: center;
+    line-height: 1.1;
+    max-width: 100%;
 }
 
 img.logo {
@@ -76,18 +90,12 @@ img.logo {
     width: auto;
 }
 
-span.logo {
-    font-size: clamp(1.5rem, 6vw, 4rem);
-    font-family: "Playfair Display", "Times New Roman", serif;
-    white-space: nowrap;
-}
-
 /* Search Bar */
 div.search {
     display: flex;
     margin-right: 15px;
     align-items: center;
-    align-self: center;
+    align-self: flex-end;
     flex-shrink: 0;
 }
 
@@ -145,7 +153,9 @@ input.searchbar {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*Changed from center and fixes the hamburguer icon position. */
+    align-items: flex-start;
+    align-self: flex-end;
     gap: 8px;
     flex-shrink: 0;
 }
@@ -213,16 +223,6 @@ div.form {
     height: 300px;
 }
 
-
-
-
-@media (min-width: 420px) {
-  .header {grid-area: 1 / span 6;}
-  .menu {grid-area: 2 / span 1;}
-  .content {grid-area: 2 / span 4;}
-  .facts {grid-area: 2 / span 1;}
-  .footer {grid-area: 3 / span 6;}
-}
 
 @media screen and (min-width: 420px) {
   .navbar {
