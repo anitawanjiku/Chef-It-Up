@@ -295,14 +295,14 @@ input.searchbar {
 
 .dropdown-content {
     display: none;
-    position: relative;
-    align-self: flex-start;
+    position: absolute;
+    top: 100%; /* Positions the menu directly below the container */
+    left: 0;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rbga(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Fixed 'rgba' typo */
     z-index: 1;
 }
-
 .dropdown-content a {
     color: #0D47A1;
     font-family: "Playfair Display", "Times New Roman", serif;
