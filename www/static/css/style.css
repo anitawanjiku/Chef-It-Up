@@ -220,7 +220,16 @@ div.meal_square {
 }
 
 
-/* About-page specific CSS */
+/* Contact-Us specific CSS */
+div.section {
+    display: flex;
+    flex-direction: column;
+}
+
+img.contact-remy {
+    margin-bottom: 1.2rem;
+}
+
 div.form {
     display: flex;
     justify-content:space-evenly ;
@@ -239,6 +248,10 @@ div.form {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+  }
+
+  div.section {
+    flex-direction: row;
   }
 }
 
