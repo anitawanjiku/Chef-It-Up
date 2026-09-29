@@ -220,25 +220,39 @@ div.meal_square {
 }
 
 
-/* Contact-Us specific CSS */
-div.section {
-    display: flex;
-    flex-direction: column;
+
+/* Contact us page, prioritising mobile view */
+.contact-form {
+  width: 90%;
+  max-width: 400px;
 }
 
-img.contact-remy {
-    margin-bottom: 1.2rem;
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 16px;
+  vertical-align: top;
 }
 
-div.form {
-    display: flex;
-    justify-content:space-evenly ;
-    align-items: flex-end;
+.contact-form textarea {
+  height: 140px;
+  resize: vertical;
 }
 
-#userinput {
-    width: 300px;
-    height: 300px;
+/* Wider screens, picture sits beside the form */
+@media (min-width: 700px) {
+  .contact {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .fit-picture {
+    margin-bottom: 0;
+    margin-right: 48px;
+  }
 }
 
 
