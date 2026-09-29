@@ -213,10 +213,10 @@ div.three_meals {
 	margin: 0px 30px;
 }
 
+
 div.meal_square {
 	margin: 10px;
     padding-inline: 10px;
-    border: #0D47A1, solid, 5px;
 }
 
 
@@ -247,7 +247,7 @@ div.meal_square {
   resize: vertical;
 }
 
-/* Wider screens, remy's picture sits beside the form */
+/* Contact us page for Wider screens, remy's picture sits beside the form */
 @media (min-width: 700px) {
   .contact {
     flex-direction: row;
@@ -260,7 +260,6 @@ div.meal_square {
     margin-right: 48px;
   }
 }
-
 
 
 @media screen and (min-width: 420px) {
