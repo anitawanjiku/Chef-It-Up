@@ -122,28 +122,156 @@ input.searchbar {
     height: 20px;
     width: auto;
 }
-
-/* Hamburger Menu */
-.dropbtn {
+/* From Uiverse.io by 3bdel3ziz-T */ 
+/* The switch container */
+.switch {
+    --transition: 300ms;
+    --transition500: 500ms;
+    --color-dark: #0B1626;
+    --color-darkGray: #21262e;
+    --color-gray: #52555a;
+    --color-offwhite: #cecece;
+    --shadow-color: var(--color-dark);
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: var(--color-dark);
+    border-radius: 30px;
+    padding: 4px;
+    transition: var(--transition500);
+    user-select: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  /* Svg styles */
+  .switch .svg {
+    transition: var(--transition);
+    position: absolute;
+    left: 5px;
+  }
+  .switch .moon {
+    width: 18px;
+    fill: var(--color-gray);
+    opacity: 1;
+  }
+  
+  .switch .sun {
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    left: calc(100% - 21.5px);
+    top: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #90CAF9;
-    color: white;
-    padding: 2px;
-    height: auto;
-    width: auto;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.hamburger-icon {
-    height: clamp(35px, 8vw, 70px);
-    width: auto;
+    scale: 0.8;
+    opacity: 0;
+  }
+  
+  .switch .sun .dot {
+    position: relative;
     display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--color-dark);
+    background: white;
+    z-index: 1;
+    box-shadow: 11px 0px 0px var(--shadow-color),
+      10.3px 0px 0px var(--shadow-color), -11px 0px 0px var(--shadow-color),
+      -10.3px 0px 0px var(--shadow-color), 0px -11px 0px var(--shadow-color),
+      0px -10.3px 0px var(--shadow-color), 0px 11px 0px var(--shadow-color),
+      0px 10.3px 0px var(--shadow-color), 8px 8px 0px var(--shadow-color),
+      7.3px 7.3px 0px var(--shadow-color), 8px -8px 0px var(--shadow-color),
+      7.3px -7.3px 0px var(--shadow-color), -8px -8px 0px var(--shadow-color),
+      -7.3px -7.3px 0px var(--shadow-color), -8px 8px 0px var(--shadow-color),
+      -7.3px 7.3px 0px var(--shadow-color);
+  }
+  
+  .switch .sun .dot::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--color-dark);
+  }
+  
+  /*checkbox styles */
+  .switch .circle {
+    appearance: none;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    left: 0;
+    background-color: var(--color-darkGray);
+    border: 1px solid var(--color-darkGray);
+    transition: var(--transition500);
+    box-shadow: 1px 1px 20px 3px var(--color-darkGray);
+  }
+  
+  .switch:has(.circle:checked) {
+    background: var(--color-offwhite);
+  }
+  
+  .switch .circle:hover {
+    margin-left: 3px;
+  }
+  .switch .circle:checked:hover {
+    margin-left: -3px;
+  }
+  
+  .switch .circle:checked {
+    left: calc(100% - 24px);
+    background: white;
+    border-color: white;
+    box-shadow: 1px 1px 30px 12px white;
+  }
+  
+  .switch:has(.circle:checked) > .sun {
+    opacity: 1;
+  }
+  
+  .switch:has(.circle:checked) > .moon {
+    opacity: 0;
+  }
+  
+
+/* This is the bar menu --------------------------------------------------------------------------------------------------*/
+.container {
+  display: inline-block;
+  cursor: pointer;
 }
 
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+/* ----------------------------------------------------------------------------------------------------------------------- */
 .search-icon {
     height: clamp(35px, 8vw, 70px);
     width: auto;
@@ -153,10 +281,6 @@ input.searchbar {
     background-color: #90CAF9;
 }
 
-/* .dropdown-content {
-    display: flex;
-    align-self: flex-start;
-} */
 
 .dropdown {
     position: relative;
@@ -172,13 +296,13 @@ input.searchbar {
 .dropdown-content {
     display: none;
     position: absolute;
-    align-self: flex-start;
+    top: 100%; /* Positions the menu directly below the container */
+    left: 0;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rbga(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Fixed 'rgba' typo */
     z-index: 1;
 }
-
 .dropdown-content a {
     color: #0D47A1;
     font-family: "Playfair Display", "Times New Roman", serif;
