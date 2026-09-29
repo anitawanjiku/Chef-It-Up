@@ -1,5 +1,16 @@
 console.log("main.js loaded - edit me in www/static/js/main.js");
 
+/*async function getData() {
+  const url ="/initial_route"
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+  }
+  needs a catch
+}
+} */
+
 
 // toggle light vs dark mode
 function switchBgMode() {
