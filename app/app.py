@@ -15,7 +15,7 @@ def hello():
 
 @app.route("/initial_route")
 def initialroute():
-    with open('data.csv', 'r') as f:
+    with open('app/RAW_recipes.csv', 'r') as f:
         reader = csv.reader(f)
         rows = list(reader)
         # Access the 5th row (index 4)
