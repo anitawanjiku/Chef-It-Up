@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template
 import csv
 
@@ -21,7 +22,6 @@ def initialroute():
         # Access the 5th row (index 4)
         target_row = rows[0]
         print(target_row)
-
-    title = target_row[0]
+        title = target_row[0]
     
     return title
