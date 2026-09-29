@@ -222,6 +222,12 @@ div.meal_square {
 
 
 /* Contact us page, prioritising mobile view */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contact-form {
   width: 90%;
   max-width: 400px;
@@ -241,7 +247,7 @@ div.meal_square {
   resize: vertical;
 }
 
-/* Wider screens, picture sits beside the form */
+/* Wider screens, remy's picture sits beside the form */
 @media (min-width: 700px) {
   .contact {
     flex-direction: row;
@@ -254,6 +260,7 @@ div.meal_square {
     margin-right: 48px;
   }
 }
+
 
 
 @media screen and (min-width: 420px) {
