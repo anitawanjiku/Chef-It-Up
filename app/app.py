@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import csv
 
 app = Flask(__name__)
 
@@ -12,3 +13,15 @@ def home():
 def hello():
     return "Hello, World!"
 
+@app.route("/initial_route")
+def initialroute():
+    with open('data.csv', 'r') as f:
+        reader = csv.reader(f)
+        rows = list(reader)
+        # Access the 5th row (index 4)
+        target_row = rows[0]
+        print(target_row)
+
+    title = target_row[0]
+    
+    return title
