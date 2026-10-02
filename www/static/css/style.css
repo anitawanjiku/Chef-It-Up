@@ -59,6 +59,7 @@ p.team {
 header {
     background-color: #90CAF9;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     /*everything lines up with the hamburguer row.*/ 
