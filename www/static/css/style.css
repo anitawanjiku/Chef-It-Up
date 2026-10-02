@@ -59,6 +59,7 @@ p.team {
 header {
     background-color: #90CAF9;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     /*everything lines up with the hamburguer row.*/ 
@@ -78,7 +79,6 @@ div.logo {
     gap: 10px;
     flex: 1 1 auto;
     min-width: 0;
-    align-self: flex-end;
 }
 
 
@@ -103,7 +103,6 @@ div.search {
     display: flex;
     margin-right: 15px;
     align-items: center;
-    align-self: flex-end;
     flex-shrink: 0;
 }
 
@@ -118,10 +117,22 @@ button.searchbutton {
 }
 
 input.searchbar {
-    display: flex;
     height: 20px;
     width: auto;
 }
+
+.search .searchbar {
+  display: none;
+}
+
+.search.open .searchbar {
+  display: flex;
+}
+
+.search.open .searchbutton {
+  display: none;
+}
+
 /* From Uiverse.io by 3bdel3ziz-T */ 
 /* The switch container */
 .switch {
@@ -288,7 +299,7 @@ input.searchbar {
     flex-direction: column;
     /*Changed from center and fixes the hamburguer icon position. */
     align-items: center;
-    align-self: flex-end;
+    padding-left: 10px;
     gap: 2px;
     flex-shrink: 0;
 }
@@ -387,11 +398,11 @@ div.meal_square {
 
 
 @media screen and (min-width: 420px) {
-  .navbar {
+  header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
   }
 
   div.section {
