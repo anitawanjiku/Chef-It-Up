@@ -13,15 +13,31 @@ console.log("main.js loaded - edit me in www/static/js/main.js");
 
 
 // toggle light vs dark mode
-function switchBgMode() {
-  let bodyColor = document.querySelector("body");
-  if (bodyColor.className === "light-mode") {
-    bodyColor.className = "dark-mode";
-    img => img.src = "static/img/darkremylogo";
-  }
-  else {bodyColor.className = "light-mode"};
-  img => img.src = "static/img/lightremylogo.png";
+function applyTheme(theme) {
+  document.body.className = theme + "-mode";
+
+  // keep the switch in sync (checked = dark)
+  var box = document.getElementById("switch");
+  if (box) box.checked = (theme === "dark");
 }
+
+function switchBgMode() {
+  var next = document.body.classList.contains("dark-mode") ? "light" : "dark";
+  applyTheme(next);
+  try { localStorage.setItem("theme", next); } catch (e) {}
+}
+
+// On every page load, restore the saved theme
+document.addEventListener("DOMContentLoaded", function () {
+  var saved = null;
+  try { saved = localStorage.getItem("theme"); } catch (e) {}
+  applyTheme(saved || "light");
+});
+
+// Optional: update other open tabs live
+window.addEventListener("storage", function (e) {
+  if (e.key === "theme" && e.newValue) applyTheme(e.newValue);
+});
 
 //--------------------------------------------------------------------------------------------------------------------------
 // activate search function
@@ -72,6 +88,3 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //--------------------------------------------------------------------------------------------------------------------------
-//function myFunction(x) {
-  //x.classList.toggle("change");
-//}
