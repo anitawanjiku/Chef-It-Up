@@ -41,10 +41,28 @@ window.addEventListener("storage", function (e) {
 
 //--------------------------------------------------------------------------------------------------------------------------
 // activate search function
-function searchBar() {
-    let searchIcon = document.getElementsByClassName("searchbutton")[0];
-    searchIcon.outerHTML = '<input class="searchbar" type="text" placeholder="Search..."></input>';
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const search = document.querySelector('.search');
+  const searchInput = search.querySelector('.searchbar');
+
+  // open
+  search.querySelector('.searchbutton').addEventListener('click', () => {
+      search.classList.add('open');
+      searchInput.focus();
+  });
+
+  // close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!search.contains(e.target) && !searchInput.value) {
+          search.classList.remove('open');
+      }
+  });
+
+  // Escape closes it
+  document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') search.classList.remove('open');
+  });
+});
 
 //--------------------------------------------------------------------------------------------------------------------------
 // This is for the hamburguer menu in the navigation bar. The dropdown would help us get into any part of the webpage. 

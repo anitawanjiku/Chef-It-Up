@@ -117,10 +117,22 @@ button.searchbutton {
 }
 
 input.searchbar {
-    display: flex;
     height: 20px;
     width: auto;
 }
+
+.search .searchbar {
+  display: none;
+}
+
+.search.open .searchbar {
+  display: flex;
+}
+
+.search.open .searchbutton {
+  display: none;
+}
+
 /* From Uiverse.io by 3bdel3ziz-T */ 
 /* The switch container */
 .switch {
