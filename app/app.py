@@ -26,3 +26,8 @@ def initialroute():
     
     return title
 
+@app.route("/shoutout/<someone>")
+def shoutout(someone):
+    return render_template('shoutout.html', 
+                           page_title = 'Shoutout to {}'.format(someone), 
+                           someone = someone)
