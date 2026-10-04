@@ -1,5 +1,6 @@
 console.log("main.js loaded - edit me in www/static/js/main.js");
 
+/* Followed the MDN doc getData function */
 async function getData() {
   const url = "/initial_route";
   try {
@@ -7,7 +8,6 @@ async function getData() {
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
-
     const ingredient = await response.text(); // Read the response body
     document.querySelector(".ingredient").textContent = ingredient; // Update the DOM
 
@@ -15,6 +15,8 @@ async function getData() {
     console.error("Failed to fetch ingredient:", error);
   }
 }
+
+
 
 
 // toggle light vs dark mode
