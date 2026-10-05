@@ -42,10 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
   applyTheme(saved || "light");
 });
 
-// Optional: update other open tabs live
-window.addEventListener("storage", function (e) {
-  if (e.key === "theme" && e.newValue) applyTheme(e.newValue);
-});
 
 //--------------------------------------------------------------------------------------------------------------------------
 // activate search function
