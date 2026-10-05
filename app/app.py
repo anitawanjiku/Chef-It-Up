@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask import Flask, jsonify
 import csv
 import ast
 
@@ -17,7 +18,7 @@ def hello():
 @app.route("/initial_route")
 def initialroute():
     try:
-        with open('app/RAW_recipes.csv', 'r') as f:
+        with open('/data/RAW_recipes.csv', 'r') as f:
             reader = csv.DictReader(f)
             first_recipe = next(reader)
             ingredients = ast.literal_eval(first_recipe['ingredients'])

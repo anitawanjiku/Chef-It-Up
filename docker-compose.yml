@@ -6,6 +6,7 @@ services:
     volumes:
       # Bind-mount the app directory so code edits show up immediately
       # without rebuilding the image.
+      - ./RAW_recipes.csv:/data/RAW_recipes.csv
       - ./app:/app
     environment:
       - FLASK_ENV=development
