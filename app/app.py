@@ -21,9 +21,9 @@ def initialroute():
             reader = csv.DictReader(f)
             first_recipe = next(reader)
             ingredients = ast.literal_eval(first_recipe['ingredients'])
-            return ingredients[0]
+        return jsonify({"ingredient": ingredients[0]})
     except Exception as e:
-        return "Unknown", 500
+        return jsonify({"error": "Unknown"}), 500
 
 @app.route("/shoutout/<someone>")
 def shoutout(someone):
