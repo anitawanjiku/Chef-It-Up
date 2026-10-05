@@ -8,7 +8,7 @@ async function getData() {
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
-    const ingredient = await response.text(); // Read the response body
+    const ingredient = await response.text() // Read the response body
     document.querySelector(".ingredient").textContent = ingredient; // Update the DOM
 
   } catch (error) {
