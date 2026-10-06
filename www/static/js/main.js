@@ -1,5 +1,8 @@
 console.log("main.js loaded - edit me in www/static/js/main.js");
 
+
+//-------------------------------------------------------------------------------------------------------------
+// JSON + AJAX to display backend ingredient of week
 /* Followed the MDN doc getData function */
 async function getData() {
   const url = "/initial_route";
@@ -19,7 +22,7 @@ async function getData() {
 getData()
 
 
-
+//-------------------------------------------------------------------------------------------------------------------------
 // toggle light vs dark mode
 function applyTheme(theme) {
   document.body.className = theme + "-mode";
@@ -68,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
 //--------------------------------------------------------------------------------------------------------------------------
 // This is for the hamburguer menu in the navigation bar. The dropdown would help us get into any part of the webpage. 
 // W3 schools support code adapted to our neccesities on how to work our way through the hamburger menu. 
@@ -87,6 +91,7 @@ window.onclick = function(event) {
         }
     }
 }
+
 
 //--------------------------------------------------------------------------------------------------------------------------
 // W3 Schools also provided the implementation for this. This is for the accordion, the accordion in the about section, which 
