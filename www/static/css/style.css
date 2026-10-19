@@ -353,10 +353,16 @@ div.three_meals {
 	margin: 0px 30px;
 }
 
-
 div.meal_square {
 	margin: 10px;
     padding-inline: 10px;
+}
+
+p.ingredient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px, 30px;
 }
 
 
