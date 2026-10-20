@@ -5,7 +5,7 @@ console.log("main.js loaded - edit me in www/static/js/main.js");
 // JSON + AJAX to display backend ingredient of week
 /* Followed the MDN doc getData function */
 async function getData() {
-  const url = "/initial_route";
+  const url = "/ingredient";
   try {
     const response = await fetch(url);
     if (!response.ok) {

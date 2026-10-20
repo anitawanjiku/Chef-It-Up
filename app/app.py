@@ -15,8 +15,8 @@ def home():
 def hello():
     return "Hello, World!"
 
-@app.route("/initial_route")
-def initialroute():
+@app.route("/ingredient")
+def random_ingredient():
     try:
         with open('/data/RAW_recipes.csv', 'r') as f:
             #write conversion logic for CSV to JSON
@@ -29,8 +29,12 @@ def initialroute():
     except Exception as e:
         return jsonify({"error": "Unknown"}), 500
 
-@app.route("/shoutout/<someone>")
-def shoutout(someone):
-    return render_template('shoutout.html', 
-                           page_title = 'Shoutout to {}'.format(someone), 
-                           someone = someone)
+@app.route("/search")
+def search_recipes():
+    return
+
+# @app.route("/shoutout/<someone>")
+# def shoutout(someone):
+#     return render_template('shoutout.html', 
+#                            page_title = 'Shoutout to {}'.format(someone), 
+#                            someone = someone)
