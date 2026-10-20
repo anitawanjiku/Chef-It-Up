@@ -366,6 +366,13 @@ p.ingredient {
 }
 
 
+/* Search all recipes page ------------------------------------------------------------------------------ */
+form.flex-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 /* Contact us page, prioritising mobile view ------------------------------------------------------------ */
 .contact {
