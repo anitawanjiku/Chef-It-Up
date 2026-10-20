@@ -18,11 +18,11 @@ def hello():
 @app.route("/ingredient")
 def random_ingredient():
     try:
-        with open('/data/RAW_recipes.csv', 'r') as f:
-            #write conversion logic for CSV to JSON
-            #removes need for ast.literal_eval() etc
-            reader = csv.DictReader(f)
-            first_recipe = next(reader)
+        
+        with open('recipes_data.json') as f:
+            all_recipes = json.load(f)
+        for recipe in recipes:
+
             ingredients = ast.literal_eval(first_recipe['ingredients'])
         return jsonify(ingredients[0])
         #return jsonify({"ingredient": ingredients[0]})
