@@ -366,56 +366,19 @@ p.ingredient {
 }
 
 
-/* Search all recipes page ------------------------------------------------------------------------------ */
-form.flex-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* About-page specific CSS */
+div.form {
+    display: flex;
+    justify-content:space-evenly ;
+    align-items: flex-end;
+}
+
+#userinput {
+    width: 300px;
+    height: 300px;
 }
 
 
-/* Contact us page, prioritising mobile view ------------------------------------------------------------ */
-.contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contact-form {
-  width: 90%;
-  max-width: 400px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 8px;
-  font-size: 16px;
-  vertical-align: top;
-}
-
-.contact-form textarea {
-  height: 140px;
-  resize: vertical;
-}
-
-/* Contact us page for Wider screens, remy's picture sits beside the form ---------------------------------- */
-@media (min-width: 700px) {
-  .contact {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .fit-picture {
-    margin-bottom: 0;
-    margin-right: 48px;
-  }
-}
-
-
-/* header CSS for large screens, default small screens ---------------------------------------------------- */
 @media screen and (min-width: 420px) {
   header {
     display: flex;
