@@ -65,6 +65,61 @@
             </div>
         </header>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <h1>Filter Recipes</h1>
+        <form class="flex-form" id="search" action="/filter" method="POST">
+            <div class="form-item">
+                <label for="filter-by">Filter By: </label>
+                <select id="filter-by" name="filter-by">
+                    <option value="time">Time</option>
+                    <option value="meal">Meal</option>
+                    <option value="recipe">Recipe Name</option>
+                    <option value="ingerdient">Ingredient</option>
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label for="vegetarian">Are you Vegetarian? </label>
+                <input type="checkbox" name="diet" id="vegetarian" checked>
+            </div>
+
+            <div class="form-item">
+                <label for="vegan">Are you Vegan?</label>
+                <input type="checkbox" name="diet" id="vegan " checked>
+            </div>
+        </form>
+
         
         
     </body>
