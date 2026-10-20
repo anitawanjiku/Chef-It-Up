@@ -19,6 +19,8 @@ def hello():
 def initialroute():
     try:
         with open('/data/RAW_recipes.csv', 'r') as f:
+            #write conversion logic for CSV to JSON
+            #removes need for ast.literal_eval() etc
             reader = csv.DictReader(f)
             first_recipe = next(reader)
             ingredients = ast.literal_eval(first_recipe['ingredients'])
