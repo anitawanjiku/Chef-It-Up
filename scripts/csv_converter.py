@@ -1,10 +1,10 @@
-import CSV
+import csv
 import json
 
 
 # Define our file paths
-csv_file_path = 'data/RAW_recipes.csv'
-json_file_path = 'data/recipes_data.json'
+csv_file_path = 'RAW_recipes.csv'
+json_file_path = 'recipes_data.json'
 
 # Read CSV and convert rows into a list of dictionaries
 with open(csv_file_path, mode='r', encoding='utf-8') as csv_file:
