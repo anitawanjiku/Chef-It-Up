@@ -1,4 +1,5 @@
-import CSV
+import ast
+import csv
 import json
 
 
@@ -15,8 +16,8 @@ with open(csv_file_path, mode='r', encoding='utf-8') as csv_file:
     data = []
     for row in csv_reader:
         if row['tags']:
-            data= row['tag']=ast.literal_eval(row['tags'])
-        data.append[row]
+            row['tag']=ast.literal_eval(row['tags'])
+        data.append(row)
     
 # Write the dictionaries into a formatted JSON file
 with open(json_file_path, mode='w', encoding='utf-8') as json_file:
