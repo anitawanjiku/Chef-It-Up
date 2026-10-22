@@ -11,16 +11,13 @@ async function getData() {
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
-    const ingredient = await response.text() // Read the response body
-    document.querySelector(".ingredient").textContent = ingredient; // Update the DOM
+    const data = await response.json()
+    document.querySelector(".ingredient").textContent = data.ingredient;
 
   } catch (error) {
     console.error("Failed to fetch ingredient:", error);
   }
 }
-
-getData()
-
 
 //-------------------------------------------------------------------------------------------------------------------------
 // toggle light vs dark mode
@@ -84,7 +81,7 @@ window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
         for (let i = 0; i < dropdowns.length; i++) {
-            var openDropdown = downdowns[i];
+            var openDropdown = dropdowns[i];
             if (openDropdown.classList.contains('show')) {
                 openDropdown.classList.remove('show');
             }

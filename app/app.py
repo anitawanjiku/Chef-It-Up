@@ -1,6 +1,7 @@
+import json
+from pathlib import Path
 from flask import Flask, render_template
 from flask import Flask, jsonify
-import csv
 import ast
 
 app = Flask(__name__)
@@ -11,23 +12,22 @@ def home():
     return render_template("template.html")
 
 
-@app.route("/hello")
-def hello():
-    return "Hello, World!"
-
 @app.route("/ingredient")
 def random_ingredient():
     try:
-        
-        with open('recipes_data.json') as f:
-            all_recipes = json.load(f)
-        for recipe in recipes:
+        data_path = Path(__file__).resolve().with_name("recipes_data.json")
+        with data_path.open(encoding="utf-8") as f:
+            recipes = json.load(f)
 
-            ingredients = ast.literal_eval(first_recipe['ingredients'])
-        return jsonify(ingredients[0])
-        #return jsonify({"ingredient": ingredients[0]})
+        first_recipe = recipes[0]
+        ingredients = first_recipe['ingredients']
+
+        return jsonify({"ingredient": ingredients[0]})
+
+    except (KeyError, IndexError) as e:
+        return jsonify({"error": f"Data issue: {str(e)}"}), 500
     except Exception as e:
-        return jsonify({"error": "Unknown"}), 500
+        return jsonify({"error": str(e), "type": type(e).__name__}), 500  # 👈 expose the real error
 
 @app.route("/search")
 def search_recipes():
