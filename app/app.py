@@ -33,6 +33,11 @@ def random_ingredient():
 def search_recipes():
     return
 
+@app.route("/recipe/<id>")
+def recipe():
+    return
+
+
 # @app.route("/shoutout/<someone>")
 # def shoutout(someone):
 #     return render_template('shoutout.html', 
