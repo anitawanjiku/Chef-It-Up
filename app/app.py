@@ -34,7 +34,7 @@ def search_recipes():
     return
 
 @app.route("/recipe/<id>")
-def recipe():
+def recipe(id):
     data_path = Path(__file__).resolve().parent.parent / "recipes_data.json"
     with data_path.open(encoding="utf-8") as f:
         recipes = json.load(f)
