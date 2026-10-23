@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 
-{#commment#} <!-- also comment -->
+{#commment#}
+<!-- also comment -->
 
 {% block main body %}
 
 <p>this is the recipe page</p>
 
-<!-- <h1>{{ recipe["name"] }}</h1> -->
+<!-- <h1>{{ recipe["name"] }}</h1>
+<h2>{{ recipe["minutes"] minutes | recipe["n_ingredients"] ingredients }}</h2>
+
+{% if recipe %}
+{# show recipe information #}
+
+{% else %}
+{# show reviews #} -->
 
 {% endblock %}
