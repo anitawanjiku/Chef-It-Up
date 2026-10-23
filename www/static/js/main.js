@@ -19,17 +19,8 @@ async function getData() {
   }
 }
 
-async function getRecipePage(){
-  const url = "/recipe/<0>";
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-  } catch (error) {
-    console.error("Failed to fetch ingredient:", error);
-  }
+function getRecipePage(recipeIndex) {
+  window.location.href = `/recipe/${recipeIndex}`;
 }
 
 

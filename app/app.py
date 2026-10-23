@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
-from flask import Flask, render_template
-from flask import Flask, jsonify
+from flask import Flask, render_template, jsonify, abort
 import ast
 
 app = Flask(__name__)
@@ -33,15 +32,16 @@ def random_ingredient():
 def search_recipes():
     return
 
-@app.route("/recipe/<id>")
-def recipe(id):
+@app.route("/recipe/<int:recipe_index>")
+def recipe(recipe_index):
     data_path = Path(__file__).resolve().parent.parent / "recipes_data.json"
     with data_path.open(encoding="utf-8") as f:
         recipes = json.load(f)
 
-    recipe = recipes[id]
+    if recipe_index >= len(recipes):
+        abort(404)
 
-    return render_template('recipe.html', recipe=recipe)
+    return render_template("recipe.html", recipe=recipes[recipe_index])
 
 # @app.route("/shoutout/<someone>")
 # def shoutout(someone):
