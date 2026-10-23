@@ -19,6 +19,20 @@ async function getData() {
   }
 }
 
+async function getRecipePage(){
+  const url = "/recipe/<0>";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+  } catch (error) {
+    console.error("Failed to fetch ingredient:", error);
+  }
+}
+
+
 //-------------------------------------------------------------------------------------------------------------------------
 // toggle light vs dark mode
 function applyTheme(theme) {
@@ -41,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   try { saved = localStorage.getItem("theme"); } catch (e) {}
   applyTheme(saved || "light");
 });
+
 
 
 //--------------------------------------------------------------------------------------------------------------------------
