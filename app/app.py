@@ -15,7 +15,7 @@ def home():
 @app.route("/ingredient")
 def random_ingredient():
     try:
-        data_path = Path(__file__).resolve().with_name("recipes_data.json")
+        data_path = Path(__file__).resolve().parent.parent / "recipes_data.json"
         with data_path.open(encoding="utf-8") as f:
             recipes = json.load(f)
 

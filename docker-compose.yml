@@ -8,6 +8,7 @@ services:
       # without rebuilding the image.
       - ./RAW_recipes.csv:/data/RAW_recipes.csv
       - ./app:/app
+      - ./recipes_data.json:/recipes_data.json:ro
     environment:
       - FLASK_ENV=development
     expose:
