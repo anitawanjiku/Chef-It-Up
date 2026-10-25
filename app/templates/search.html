@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block search_recipes %}
+
+{# We display the user query #}
+
+
+<p>You searched "{{ searched }}"</p>
+
+{% if not results %}
+{# handle empty search result first #}
+
+No results
+
+{% else %}
+<hr />
+{# display each song #}
+{% for song in results %}
+
+    {# name and minutes to cook #}
+
+
+    {##}
+
+{# separator between results #}
+<hr />
+
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}
