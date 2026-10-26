@@ -3,11 +3,15 @@
 {% block main_body %}
 
 {% if recipe %}
+{# show recipe information #}
+
   <h1>{{ recipe["name"] }}</h1>
   <h2>{{ recipe["minutes"] }} minutes | {{ recipe["n_ingredients"] }} ingredients</h2>
-  {# show recipe information #}
+
 {% else %}
-  <p>Recipe not found.</p>
+
+  <p>No recipe found - maybe you're craving something else?</p>
+
 {% endif %}
 
 {% endblock %}
