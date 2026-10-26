@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from flask import Flask, render_template, jsonify, abort, request
 import ast
+import random
 
 app = Flask(__name__, static_folder="../www/static")
 
@@ -18,10 +19,14 @@ def random_ingredient():
         with data_path.open(encoding="utf-8") as f:
             recipes = json.load(f)
 
-        first_recipe = recipes[0]
-        ingredients = first_recipe['ingredients']
+        recipe = random.choice(recipes)
+        ingredients = recipe['ingredients']
 
-        return jsonify({"ingredient": ingredients[0]})
+        # Handle ingredients since it is a list of strings
+        if isinstance(ingredients, str):
+            ingredients = ast.literal_eval(ingredients)
+
+        return jsonify({"ingredient": random.choice(ingredients)})
 
     except (KeyError, IndexError) as e:
         return jsonify({"error": f"Data issue: {str(e)}"}), 500
