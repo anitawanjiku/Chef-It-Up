@@ -34,7 +34,7 @@ with open(csv_file_path, mode='r', encoding='utf-8') as csv_file:
     
     data = []
     skipped = 0
-
+    number = 0
     for row in csv_reader:
         # Check for truncated/malformed rows — skip them
         steps_raw = row.get('steps', '')
@@ -52,8 +52,11 @@ with open(csv_file_path, mode='r', encoding='utf-8') as csv_file:
         row['minutes']       = safe_int(row.get('minutes'))
         row['n_steps']       = safe_int(row.get('n_steps'))
         row['n_ingredients'] = safe_int(row.get('n_ingredients'))
+        row['position'] = number
 
         data.append(row)
+
+        number += 1
 
 with open(json_file_path, mode='w', encoding='utf-8') as json_file:
     json.dump(data, json_file, indent=4)
