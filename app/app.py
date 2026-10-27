@@ -21,16 +21,14 @@ def random_ingredient():
         recipe = random.choice(recipes)
         ingredients = recipe['ingredients']
 
-        # Handle ingredients since it is a list of strings
-        if isinstance(ingredients, str):
-            ingredients = ast.literal_eval(ingredients)
-
         return jsonify({"ingredient": random.choice(ingredients)})
 
     except (KeyError, IndexError) as e:
         return jsonify({"error": f"Data issue: {str(e)}"}), 500
     except Exception as e:
         return jsonify({"error": str(e), "type": type(e).__name__}), 500  # 👈 expose the real error
+
+
 
 @app.route("/search", methods=["POST"])
 def search_recipes():
