@@ -21,10 +21,6 @@ def random_ingredient():
         recipe = random.choice(recipes)
         ingredients = recipe['ingredients']
 
-        # Handle ingredients since it is a list of strings
-        if isinstance(ingredients, str):
-            ingredients = ast.literal_eval(ingredients)
-
         return jsonify({"ingredient": random.choice(ingredients)})
 
     except (KeyError, IndexError) as e:
