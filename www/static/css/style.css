@@ -267,7 +267,7 @@ input.searchbar {
   }
   
 
-/* This is the bar menu ---------------------------------------------------------------------------------------------- */
+/* This is the bar menu --------------------------------------------------------------------------------- */
 .container {
   display: inline-block;
   cursor: pointer;
@@ -395,7 +395,8 @@ div.form {
   transition: 0.4s;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* Add a background color to the button if it is clicked on (add the .active class with JS),
+ and when you move the mouse over it (hover) */
 .active, .accordion:hover {
   background-color: #ccc;
 }
@@ -453,7 +454,7 @@ div.form-item {
   resize: vertical;
 }
 
-/* Contact us page for Wider screens, remy's picture sits beside the form ---------------------------------- */
+/* Contact us page for Wider screens, remy's picture sits beside the form ----------------------------- */
 @media (min-width: 700px) {
   .contact {
     flex-direction: row;
@@ -468,7 +469,7 @@ div.form-item {
 }
 
 
-/* header CSS for large screens, default small screens ---------------------------------------------------- */
+/* header CSS for large screens, default small screens --------------------------------------------------- */
 @media screen and (min-width: 420px) {
   header {
     display: flex;
@@ -480,4 +481,9 @@ div.form-item {
   div.section {
     flex-direction: row;
   }
+}
+
+/* recipe template specific ------------------------------------------------------------------------------ */
+h4.recipe {
+  text-align: left;
 }
