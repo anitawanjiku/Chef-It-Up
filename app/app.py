@@ -28,6 +28,8 @@ def random_ingredient():
     except Exception as e:
         return jsonify({"error": str(e), "type": type(e).__name__}), 500  # 👈 expose the real error
 
+
+
 @app.route("/search", methods=["POST"])
 def search_recipes():
     filter_by = request.form.get("filter-by")
