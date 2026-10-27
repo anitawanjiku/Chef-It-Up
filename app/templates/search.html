@@ -1,11 +1,11 @@
 {% extends 'base.html'%}
 
-{% block search_recipes %}
+{% block main_body %}
 
 {# We display the user query #}
 
 
-<p>You searched "{{ searched }}"</p>
+<p>You searched "{{ search_bar }}"</p>
 
 {% if not results %}
 {# handle empty search result first #}
@@ -14,13 +14,14 @@ No results
 
 {% else %}
 <hr />
-{# display each song #}
-{% for song in results %}
+{# display each recipe #}
+{% for recipe in results %}
 
-    {# name and minutes to cook #}
+    {# name of the recipe #}
+    <p> {{ recipe["name"] }}</p>
 
-
-    {##}
+    {# minutes to cook #}
+    <p> Time to prepare (in minutes): {{ recipe["minutes"] }}</p>
 
 {# separator between results #}
 <hr />

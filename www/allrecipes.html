@@ -64,8 +64,8 @@
                 <input class="searchbar" type="text" placeholder="Search...">
             </div>
         </header>
-
-        <h1>Search All Recipes</h1>
+<!-- Do not use this.  -->
+        <!--<h1>Search All Recipes</h1>
         <form class="flex-form" id="search" action="/search" method="POST">
             <div class="form-item">
                 <input id="search-bar" name="search-bar" size="40" maxlength="10000" placeholder="Search all recipes...">
@@ -73,10 +73,18 @@
             <div class="form-item">
                 <input type="submit" value="Search" />
             </div>
-        </form>
+        </form> -->
+<!-- Do not use this. -->
 
         <h1>Filter Recipes</h1>
-        <form class="flex-form" id="search" action="/filter" method="POST">
+        <form class="flex-form" id="search" action="/search" method="POST">
+
+            <div class="form-item">
+                <input id="search-bar" name="search-bar" size="40" maxlength="10000" placeholder="Search all recipes...">
+            </div>
+            <div class="form-item">
+                <input type="submit" value="Search" />
+            </div>
             <div class="form-item">
                 <label for="filter-by">Filter By: </label>
                 <select id="filter-by" name="filter-by">
