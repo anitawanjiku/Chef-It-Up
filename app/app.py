@@ -15,8 +15,7 @@ def home():
 @app.route("/ingredient")
 def random_ingredient():
     try:
-        data_path = Path(__file__).resolve().parent.parent / "recipes_data.json"
-        with data_path.open(encoding="utf-8") as f:
+        with open('/app/data/recipes_data.json') as f:
             recipes = json.load(f)
 
         recipe = random.choice(recipes)
@@ -42,7 +41,7 @@ def search_recipes():
 
     # Load json data
     all_recipes = [] 
-    with open('recipes_data_{}.json') as f:
+    with open('/app/data/recipes_data.json') as f:
         recipe_lst = json.load(f)
 
     all_recipes += recipe_lst
@@ -74,8 +73,7 @@ def search_recipes():
 
 @app.route("/recipe/<int:recipe_index>")
 def recipe(recipe_index):
-    data_path = Path(__file__).resolve().parent.parent / "recipes_data.json"
-    with data_path.open(encoding="utf-8") as f:
+    with open('/app/data/recipes_data.json') as f:
         recipes = json.load(f)
 
     if recipe_index >= len(recipes):
