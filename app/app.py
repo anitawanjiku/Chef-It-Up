@@ -7,6 +7,12 @@ import random
 app = Flask(__name__, static_folder="../www/static")
 
 
+@app.errorhandler(404)
+# inbuilt function which takes error as parameter
+def not_found(e):
+# defining function
+  return render_template("404.html")
+
 @app.route("/template")
 def home():
     return render_template("template.html")

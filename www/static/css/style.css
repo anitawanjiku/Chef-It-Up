@@ -487,3 +487,9 @@ div.form-item {
 h4.recipe {
   text-align: left;
 }
+
+/* 67 ---------------------------------------------------------------------------------------------------- */
+img.sixseven {
+  height: clamp(250px, 40vw, 600px);
+    width: auto;
+}
