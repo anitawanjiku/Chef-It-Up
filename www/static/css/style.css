@@ -427,12 +427,6 @@ div.form-item {
   
 } */
 
-/* Recipe page styling ---------------------------------------------------------------------------------- */
-span.nutrition {
-  font-weight: bold;
-  font-size: 110%;
-}
-
 
 /* Contact us page, prioritising mobile view ------------------------------------------------------------ */
 .contact {
@@ -489,7 +483,14 @@ span.nutrition {
   }
 }
 
-/* recipe template specific ------------------------------------------------------------------------------ */
-h4.recipe {
+
+/* Recipe page styling ---------------------------------------------------------------------------------- */
+span.nutrition {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+h3.recipe {
   text-align: left;
+  font-weight: bold;
 }
