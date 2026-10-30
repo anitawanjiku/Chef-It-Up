@@ -29,13 +29,13 @@
   <h4 class="recipe">Nutrition</h4>
   {% set nutri = recipe["nutrition"] %}
   <ul>
-      <li>Calories: {{ nutri[0] }}</li>
-      <li>Total fat(PDV): {{ nutri[1] }}</li>
-      <li>Sugar(sugar): {{ nutri[2] }}</li>
-      <li>Sodium(PDV): {{ nutri[3] }}</li>
-      <li>Protein(PDV): {{ nutri[4] }}</li>
-      <li>Saturated Fat(PDV): {{ nutri[5] }}</li>
-      <li>Carbohydrates(PDV): {{ nutri[6] }}</li>
+      <li>Calories: <span class="nutrition">{{ nutri[0] }}</span></li>
+      <li>Total fat(PDV): <span class="nutrition">{{ nutri[1] }}</span></li>
+      <li>Sugar(sugar): <span class="nutrition">{{ nutri[2] }}</span></li>
+      <li>Sodium(PDV): <span class="nutrition">{{ nutri[3] }}</span></li>
+      <li>Protein(PDV): <span class="nutrition">{{ nutri[4] }}</span></li>
+      <li>Saturated Fat(PDV): <span class="nutrition">{{ nutri[5] }}</span></li>
+      <li>Carbohydrates(PDV): <span class="nutrition">{{ nutri[6] }}</span></li>
   </ul>
 
   <h4 class="recipe">Tags</h4>

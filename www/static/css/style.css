@@ -427,6 +427,10 @@ div.form-item {
   
 } */
 
+/* Recipe page styling ---------------------------------------------------------------------------------- */
+span.nutrition {
+  font-weight: bolder;
+}
 
 /* Contact us page, prioritising mobile view ------------------------------------------------------------ */
 .contact {
