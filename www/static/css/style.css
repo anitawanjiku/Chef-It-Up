@@ -483,13 +483,20 @@ div.form-item {
   }
 }
 
-/* recipe template specific ------------------------------------------------------------------------------ */
-h4.recipe {
+
+/* Recipe page styling ---------------------------------------------------------------------------------- */
+span.nutrition {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+h3.recipe {
   text-align: left;
+  font-weight: bold;
 }
 
 /* 67 ---------------------------------------------------------------------------------------------------- */
 img.sixseven {
   height: clamp(250px, 40vw, 600px);
-    width: auto;
+  width: auto;
 }

@@ -8,37 +8,36 @@
   <h1>{{ recipe["name"] }}</h1>
   <h2>{{ recipe["minutes"] }} minutes | {{ recipe["n_ingredients"] }} ingredients</h2>
 
-  <h4 class="recipe">Description</h4>
+  <h3 class="recipe">Description</h3>
   <p>{{recipe["description"]}}</p>
 
-  <h4 class="recipe">Ingredients</h4>
-  
+  <h3 class="recipe">Ingredients</h3>
   <ul>
     {% for ingred in recipe["ingredients"] %}
       <li>{{ ingred }}</li>
     {% endfor %}
   </ul>
 
-  <h4 class="recipe">Steps</h4>
+  <h3 class="recipe">Steps</h3>
   <ul>
     {% for step in recipe["steps"] %}
       <li>{{ step }}</li>
     {% endfor %}
   </ul>
 
-  <h4 class="recipe">Nutrition</h4>
+  <h3 class="recipe">Nutrition</h3>
   {% set nutri = recipe["nutrition"] %}
   <ul>
-      <li>Calories: {{ nutri[0] }}</li>
-      <li>Total fat(PDV): {{ nutri[1] }}</li>
-      <li>Sugar(sugar): {{ nutri[2] }}</li>
-      <li>Sodium(PDV): {{ nutri[3] }}</li>
-      <li>Protein(PDV): {{ nutri[4] }}</li>
-      <li>Saturated Fat(PDV): {{ nutri[5] }}</li>
-      <li>Carbohydrates(PDV): {{ nutri[6] }}</li>
+      <li>Calories: <span class="nutrition">{{ nutri[0] }}</span></li>
+      <li>Total fat(PDV): <span class="nutrition">{{ nutri[1] }}</span></li>
+      <li>Sugar(sugar): <span class="nutrition">{{ nutri[2] }}</span></li>
+      <li>Sodium(PDV): <span class="nutrition">{{ nutri[3] }}</span></li>
+      <li>Protein(PDV): <span class="nutrition">{{ nutri[4] }}</span></li>
+      <li>Saturated Fat(PDV): <span class="nutrition">{{ nutri[5] }}</span></li>
+      <li>Carbohydrates(PDV): <span class="nutrition">{{ nutri[6] }}</span></li>
   </ul>
 
-  <h4 class="recipe">Tags</h4>
+  <h3 class="recipe">Tags</h3>
   <ul>
     {% for tag in recipe["tags"] %}
       {% if tag == "vegan" %}  
@@ -55,7 +54,7 @@
         <li>{{ tag }}</li>
       {% elif tag == "vegetables" %}
         <li>{{ tag }}</li>
-      {% elif tag == "easy" %}south-west-pacific
+      {% elif tag == "easy" %}
         <li>{{ tag }}</li>
       {% elif tag == "fall" %}
         <li>{{ tag }}</li>
