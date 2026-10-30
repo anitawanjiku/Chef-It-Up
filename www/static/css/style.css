@@ -499,4 +499,6 @@ h3.recipe {
 img.sixseven {
   height: clamp(250px, 40vw, 600px);
   width: auto;
+  display: block;
+  margin: 0 auto;
 }
