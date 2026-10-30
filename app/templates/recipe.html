@@ -33,7 +33,7 @@
       <li>Total fat(PDV): {{ nutri[1] }}</li>
       <li>Sugar(sugar): {{ nutri[2] }}</li>
       <li>Sodium(PDV): {{ nutri[3] }}</li>
-      <li>Protien(PDV): {{ nutri[4] }}</li>
+      <li>Protein(PDV): {{ nutri[4] }}</li>
       <li>Saturated Fat(PDV): {{ nutri[5] }}</li>
       <li>Carbohydrates(PDV): {{ nutri[6] }}</li>
   </ul>
@@ -44,6 +44,52 @@
       {% if tag == "vegan" %}  
         <li>{{ tag }}</li>
       {% elif tag == "vegetarian" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "60-minutes-or-less" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "north-american" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "side-dishes" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "mexican" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "vegetables" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "easy" %}south-west-pacific
+        <li>{{ tag }}</li>
+      {% elif tag == "fall" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "south-west-pacific" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "hawaiian" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "lunch" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "snacks" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "desert" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "breakfast" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "brunch" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "low-calorie" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "15-minutes-or-less" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "winter" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "30-minutes-or-less" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "american" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "kid-friendly" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "breakfast" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "crock-pot-slow-cooker" %}
+        <li>{{ tag }}</li>
+      {% elif tag == "4-hours-or-less" %}
         <li>{{ tag }}</li>
       {% endif%}
     {% endfor %}
