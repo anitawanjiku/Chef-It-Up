@@ -6,7 +6,7 @@ body.light-mode {
     color: #000000;
 }
 
-body.light-mode h1, h2, h3, h4, h5, h6 {
+body.light-mode :is(h1, h2, h3, h4, h5, h6) {
     color: #0D47A1;
 }
 
@@ -19,7 +19,7 @@ body.dark-mode p, body.dark-mode ol {
     color: #E6F1FC
 }
 
-body.dark-mode h1, h2, h3, h4, h5, h6 {
+body.dark-mode :is(h1, h2, h3, h4, h5, h6) {
     color: #90C8F5;
 }
 
