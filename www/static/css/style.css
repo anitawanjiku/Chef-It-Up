@@ -423,9 +423,12 @@ div.form-item {
   margin: 0.5rem;
 }
 
-/* #search {
-  
-} */
+#search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 
 /* Contact us page, prioritising mobile view ------------------------------------------------------------ */
