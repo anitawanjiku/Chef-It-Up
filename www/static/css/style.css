@@ -490,18 +490,18 @@ span.nutrition {
   font-size: 110%;
 }
 
-h3.recipe {
+h3.recipe, h3.reviews {
   text-align: left;
   font-weight: bold;
 }
 
-div.recipe {
+div.recipe, div.reviews {
   margin: 10% auto;
 }
 
 /* smaller div margin on large screen */
 @media (min-width: 700px) {
-  div.recipe {
+  div.recipe, div.reviews {
     margin: 3% auto;
   }
 }
