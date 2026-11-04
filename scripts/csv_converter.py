@@ -4,7 +4,7 @@ import ast
 import random
 
 csv_file_path = 'RAW_recipes.csv'
-json_file_path = 'recipes_data.json'
+json_file_path = 'app/data/recipes_data.json'
 
 TARGET_RECIPES = 500
 TOTAL_ROWS = 231637

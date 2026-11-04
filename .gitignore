@@ -2,4 +2,4 @@ __pycache__/
 .DS_Store
 RAW_recipes.csv
 recipes_data.json
-
+chefItUp.db
