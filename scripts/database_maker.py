@@ -75,6 +75,7 @@ cursor.execute(command7)
 
 cursor.execute("DELETE FROM ingredients")
 cursor.execute("DELETE FROM recipe_ingredients")
+cursor.execute("DELETE FROM steps")
 
 with open('app/data/recipes_data.json') as f:
     recipes = json.load(f)
@@ -105,14 +106,6 @@ for recipe in recipes:
     cursor.execute("INSERT OR REPLACE INTO nutrition VALUES (?, ?, ?, ?, ?, ?, ?, ?)", 
                        (recipe['position'], nutri[0], nutri[1], nutri[2], nutri[3], nutri[4], nutri[5], 
                         nutri[6]))
-
-cursor.execute("SELECT recipe_id, ingredient, ing.ingredient_id FROM ingredients as ing JOIN" \
-" recipe_ingredients as recing ON ing.ingredient_id = recing.ingredient_id LIMIT 5")
-
-cursor.execute("SELECT * from nutrition limit 5")
-
-results = cursor.fetchall()
-print(results)
 
 ciu.commit()
 ciu.close()

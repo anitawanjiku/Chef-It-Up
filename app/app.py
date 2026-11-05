@@ -1,11 +1,9 @@
-import json
-from pathlib import Path
 from flask import Flask, render_template, jsonify, abort, request
-import ast
+import json
 import random
+import sqlite3
 
 app = Flask(__name__, static_folder="../www/static")
-
 
 @app.errorhandler(404)
 # inbuilt function which takes error as parameter
@@ -19,23 +17,36 @@ def home():
 
 @app.route("/ingredient")
 def random_ingredient():
-    try:
-        # Loads the json file from the data folder. 
-        with open('/app/data/recipes_data.json') as f:
-            recipes = json.load(f)
+    #initialize db
+    ciu = sqlite3.connect('data/chefItUp.db')
+    cursor = ciu.cursor()
+    
+    cursor.execute("""select ingredient from ingredients order by random() limit 1""")
+    results = cursor.fetchall()
+    result = results[0]
 
-        ########################################
-        # Ingredient randomizer. 
-        recipe = random.choice(recipes)
-        ingredients = recipe['ingredients']
+    ciu.commit()
+    ciu.close()
 
-        return jsonify({"ingredient": random.choice(ingredients)})
+    return jsonify({"ingredient": result[0]})
 
-    # Possible errors that may occur. 
-    except (KeyError, IndexError) as e:
-        return jsonify({"error": f"Data issue: {str(e)}"}), 500
-    except Exception as e:
-        return jsonify({"error": str(e), "type": type(e).__name__}), 500  
+    # try:
+    #     # Loads the json file from the data folder. 
+    #     with open('/app/data/recipes_data.json') as f:
+    #         recipes = json.load(f)
+
+    #     ########################################
+    #     # Ingredient randomizer. 
+    #     recipe = random.choice(recipes)
+    #     ingredients = recipe['ingredients']
+
+    #     return jsonify({"ingredient": random.choice(ingredients)})
+
+    # # Possible errors that may occur. 
+    # except (KeyError, IndexError) as e:
+    #     return jsonify({"error": f"Data issue: {str(e)}"}), 500
+    # except Exception as e:
+    #     return jsonify({"error": str(e), "type": type(e).__name__}), 500  
 
 @app.route("/search", methods=["POST"])
 def search():
@@ -67,19 +78,57 @@ def search():
     
     return render_template('search.html', search_bar=search_bar, results=results)
 
-
-
-
 @app.route("/recipe/<int:recipe_index>")
 def recipe(recipe_index):
-    with open('/app/data/recipes_data.json') as f:
-        recipes = json.load(f)
+    ciu = sqlite3.connect('data/chefItUp.db')
+    cursor = ciu.cursor()
 
-    # We are checking for possible out of index files. 
-    if recipe_index >= len(recipes):
+    cursor.execute("""SELECT name, description, minutes, n_steps, n_ingredients 
+                      FROM recipe_info WHERE recipe_id = ?""", (recipe_index,))
+    main_info = cursor.fetchone()
+
+    if main_info is None:
+        ciu.close()
         abort(404)
 
-    return render_template("recipe.html", recipe=recipes[recipe_index])
+    cursor.execute("""SELECT ingredient FROM ingredients AS ing 
+                      JOIN recipe_ingredients AS recing 
+                      ON ing.ingredient_id = recing.ingredient_id 
+                      WHERE recing.recipe_id = ?""", (recipe_index,))
+    ingred_lst = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("""SELECT step_text FROM steps 
+                      WHERE recipe_id = ? ORDER BY step_number""", (recipe_index,))
+    step_lst = [row[0] for row in cursor.fetchall()]
+
+    cursor.execute("""SELECT calories, total_fat, sugar, sodium, protein, 
+                      saturated_fat, carbohydrates 
+                      FROM nutrition WHERE recipe_id = ?""", (recipe_index,))
+    nutrit = cursor.fetchone()
+
+    ciu.close()
+
+    recipe_data = {
+        "name": main_info[0],
+        "description": main_info[1],
+        "minutes": main_info[2],
+        "n_steps": main_info[3],
+        "n_ingredients": main_info[4],
+        "ingredients": ingred_lst,
+        "steps": step_lst,
+        "nutrition": list(nutrit) if nutrit else []
+    }
+
+    return render_template("recipe.html", recipe=recipe_data)
+    
+    # with open('/app/data/recipes_data.json') as f:
+    #     recipes = json.load(f)
+
+    # # We are checking for possible out of index files. 
+    # if recipe_index >= len(recipes):
+    #     abort(404)
+
+    return render_template("recipe.html", recipe=recipe_lst)
 
 #################################################
 # Exercise in class
