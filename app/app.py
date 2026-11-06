@@ -30,23 +30,6 @@ def random_ingredient():
 
     return jsonify({"ingredient": result[0]})
 
-    # try:
-    #     # Loads the json file from the data folder. 
-    #     with open('/app/data/recipes_data.json') as f:
-    #         recipes = json.load(f)
-
-    #     ########################################
-    #     # Ingredient randomizer. 
-    #     recipe = random.choice(recipes)
-    #     ingredients = recipe['ingredients']
-
-    #     return jsonify({"ingredient": random.choice(ingredients)})
-
-    # # Possible errors that may occur. 
-    # except (KeyError, IndexError) as e:
-    #     return jsonify({"error": f"Data issue: {str(e)}"}), 500
-    # except Exception as e:
-    #     return jsonify({"error": str(e), "type": type(e).__name__}), 500  
 
 @app.route("/search", methods=["POST"])
 def search():
@@ -120,21 +103,3 @@ def recipe(recipe_index):
     }
 
     return render_template("recipe.html", recipe=recipe_data)
-    
-    # with open('/app/data/recipes_data.json') as f:
-    #     recipes = json.load(f)
-
-    # # We are checking for possible out of index files. 
-    # if recipe_index >= len(recipes):
-    #     abort(404)
-
-    return render_template("recipe.html", recipe=recipe_lst)
-
-#################################################
-# Exercise in class
-#################################################
-# @app.route("/shoutout/<someone>")
-# def shoutout(someone):
-#     return render_template('shoutout.html', 
-#                            page_title = 'Shoutout to {}'.format(someone), 
-#                            someone = someone)
