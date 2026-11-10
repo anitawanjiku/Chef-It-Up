@@ -94,6 +94,11 @@ def recipe(recipe_index):
                       FROM nutrition WHERE recipe_id = ?""", (recipe_index,))
     nutrit = cursor.fetchone()
 
+    #get tags and put them into a list
+    cursor.execute("""SELECT tag FROM recipe_tags
+                   WHERE recipe_id = ?""", (recipe_index,))
+    tag_lst = [row[0] for row in cursor.fetchall()]
+
     ciu.close()
 
     recipe_data = {
@@ -104,7 +109,8 @@ def recipe(recipe_index):
         "n_ingredients": main_info[4],
         "ingredients": ingred_lst,
         "steps": step_lst,
-        "nutrition": list(nutrit) if nutrit else []
+        "nutrition": list(nutrit) if nutrit else [],
+        "tags": tag_lst
     }
 
     return render_template("recipe.html", recipe=recipe_data)
