@@ -10,12 +10,21 @@
   <h2>{{ recipe["minutes"] }} minutes | {{ recipe["n_ingredients"] }} ingredients</h2>
 </div>
 
-<div class="recipe">
+<div class="recipe" id="recipe_tags">
+  <h3 class="recipe">Tags</h3>
+  <ul class="tags_list">
+    {% for tag in recipe["tags"] %}
+        <li class="tags_list">{{ tag }}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="recipe" id="recipe_description">
   <h3 class="recipe">Description</h3>
   <p>{{recipe["description"]}}</p>
 </div>
 
-<div class="recipe">
+<div class="recipe" id="recipe_ingredients">
   <h3 class="recipe">Ingredients</h3>
   <ul>
     {% for ingred in recipe["ingredients"] %}
@@ -24,7 +33,7 @@
   </ul>
 </div>
 
-<div class="recipe">
+<div class="recipe" id="recipe_steps">
   <h3 class="recipe">Steps</h3>
   <ol>
     {% for step in recipe["steps"] %}
@@ -33,7 +42,7 @@
   </ol>
 </div>
 
-<div class="recipe">
+<div class="recipe" id="recipe_nutrition">
   <h3 class="recipe">Nutrition</h3>
   {% set nutri = recipe["nutrition"] %}
   <ul>
@@ -44,15 +53,6 @@
       <li>Protein(PDV): <span class="nutrition">{{ nutri[4] }}</span></li>
       <li>Saturated Fat(PDV): <span class="nutrition">{{ nutri[5] }}</span></li>
       <li>Carbohydrates(PDV): <span class="nutrition">{{ nutri[6] }}</span></li>
-  </ul>
-</div>
-
-<div class="recipe">
-  <h3 class="recipe">Tags</h3>
-  <ul>
-    {% for tag in recipe["tags"] %}
-        <li>{{ tag }}</li>
-    {% endfor %}
   </ul>
 </div>
 
