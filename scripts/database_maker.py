@@ -107,5 +107,22 @@ for recipe in recipes:
                        (recipe['position'], nutri[0], nutri[1], nutri[2], nutri[3], nutri[4], nutri[5], 
                         nutri[6]))
 
+    tag_cats = {
+        "time" : [],
+        "meal_type" : [],
+        "dish_type" : [],
+        "restriction" : [],
+        "occasion" : [],
+        "cuisine" : [],
+        "nutrition" : [],
+        "other" : []
+    }
+
+    for tag in recipe['tags']:
+        for cat in tag_cats:
+            if tag in tag_cats[cat]:
+                cursor.execute("INSERT OR REPLACE INTO steps VALUES (?, ?, ?)", 
+                                    (recipe['position'], tag, cat))
+
 ciu.commit()
 ciu.close()
