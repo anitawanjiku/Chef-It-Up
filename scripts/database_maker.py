@@ -118,10 +118,15 @@ for recipe in recipes:
         "other" : []
     }
 
+    with open('scripts/used_tags.txt') as f:
+        for line in f:
+            tag, category = line.split(",")
+            tag_cats[category.strip().lower()].append(tag.strip().lower())
+
     for tag in recipe['tags']:
         for cat in tag_cats:
             if tag in tag_cats[cat]:
-                cursor.execute("INSERT OR REPLACE INTO steps VALUES (?, ?, ?)", 
+                cursor.execute("INSERT OR REPLACE INTO recipe_tags VALUES (?, ?, ?)", 
                                     (recipe['position'], tag, cat))
 
 ciu.commit()
