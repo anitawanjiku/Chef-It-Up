@@ -28,6 +28,14 @@ body.dark-mode .panel {
     color: #E6F1FC;
 }
 
+body.light-mode hr {
+  border: 1px solid #0D47A1;
+}
+
+body.dark-mode hr {
+  border: 1px solid #90C8F5;
+}
+
 /* basic body rules */
 body {
     font-family: "Playfair Display", "Times New Roman", serif;
@@ -433,6 +441,11 @@ div.form-item {
 /* fixes shrinking issue on mobile (due to long strings that wouldn't wrap) */
 p.search-result {
   overflow-wrap: anywhere;
+}
+
+p.recipe-search-result {
+  font-weight: bold;
+  font-size: large;
 }
 
 

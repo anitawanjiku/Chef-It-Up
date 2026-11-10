@@ -5,7 +5,7 @@
 {# We display the user query #}
 
 
-<p>You searched "{{ search_bar }}"</p>
+<h2>You searched "{{ search_bar }}"</h2>
 
 {% if not results %}
 {# handle empty search result first #}
@@ -18,13 +18,13 @@ No results
 {% for recipe in results %}
 
     {# name of the recipe #}
-    <p class="search-result"> {{ recipe["name"] }}</p>
+    <p class="recipe-search-result">{{ recipe["name"] }}</p>
 
     {# minutes to cook #}
-    <p class="search-result"> Time to prepare (in minutes): {{ recipe["minutes"] }}</p>
+    <p class="search-result">Time to prepare (in minutes): {{ recipe["minutes"] }}</p>
 
     {# description #}
-    <p class="search-result"> Description: {{ recipe["description"] }}</p>
+    <p class="search-result">Description: {{ recipe["description"] }}</p>
 
 {# separator between results #}
 <hr />
