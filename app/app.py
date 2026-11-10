@@ -47,9 +47,17 @@ def search():
     cursor.execute(query, (search_bar,))
 
     results = [row[0] for row in cursor.fetchall()]
+    results_lst = []
+    for recipe in results:
+        rec_info = {
+            "name" : ""
+        }
+        rec_info["name"] = recipe
+        results_lst.append(rec_info)
+
     ciu.close()
 
-    return render_template('search.html', search_bar=search_bar, results=results)
+    return render_template('search.html', search_bar=search_bar, results=results_lst)
 
 
 
