@@ -17,19 +17,21 @@ def home():
 
 @app.route("/ingredient")
 def random_ingredient():
+    '''
+    This is the ingredient from the home page bottom. We changed it from the json and it is faster.
+    '''
     #initialize db
     ciu = sqlite3.connect('data/chefItUp.db')
     cursor = ciu.cursor()
     
     cursor.execute("""select ingredient from ingredients order by random() limit 1""")
     results = cursor.fetchall()
-    result = results[0]
 
     ciu.commit()
     ciu.close()
 
-    return jsonify({"ingredient": result[0]})
-
+    return jsonify({"ingredient": results})
+ 
 
 @app.route("/search", methods=["POST"])
 def search():
@@ -129,3 +131,4 @@ def recipe(recipe_index):
     }
 
     return render_template("recipe.html", recipe=recipe_data)
+    
