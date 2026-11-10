@@ -18,13 +18,13 @@ No results
 {% for recipe in results %}
 
     {# name of the recipe #}
-    <p> {{ recipe["name"] }}</p>
+    <p class="search-result"> {{ recipe["name"] }}</p>
 
     {# minutes to cook #}
-    <p> Time to prepare (in minutes): {{ recipe["minutes"] }}</p>
+    <p class="search-result"> Time to prepare (in minutes): {{ recipe["minutes"] }}</p>
 
     {# description #}
-    <p> Description: {{ recipe["description"] }}</p>
+    <p class="search-result"> Description: {{ recipe["description"] }}</p>
 
 {# separator between results #}
 <hr />

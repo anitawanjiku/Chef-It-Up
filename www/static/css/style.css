@@ -430,6 +430,11 @@ div.form-item {
   align-items: center;
 }
 
+/* fixes shrinking issue on mobile (due to long strings that wouldn't wrap) */
+p.search-result {
+  overflow-wrap: anywhere;
+}
+
 
 /* Contact us page, prioritising mobile view ------------------------------------------------------------ */
 .contact {
