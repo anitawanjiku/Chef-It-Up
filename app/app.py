@@ -43,16 +43,16 @@ def search():
 
     ciu = sqlite3.connect('data/chefItUp.db')
     cursor = ciu.cursor()
-    query = """SELECT name FROM recipe_info WHERE name LIKE '%' || ? || '%' LIMIT 10"""
+    query = """SELECT name, minutes, description FROM recipe_info WHERE name LIKE '%' || ? || '%' LIMIT 10;"""
     cursor.execute(query, (search_bar,))
 
-    results = [row[0] for row in cursor.fetchall()]
+    
     results_lst = []
-    for recipe in results:
+    for row in cursor.fetchall():
         rec_info = {
-            "name" : ""
-        }
-        rec_info["name"] = recipe
+            "name" : row[0], "minutes" : row[1], "description" : row[2],
+            }
+
         results_lst.append(rec_info)
 
     ciu.close()
