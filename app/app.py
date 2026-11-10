@@ -66,24 +66,29 @@ def recipe(recipe_index):
     ciu = sqlite3.connect('data/chefItUp.db')
     cursor = ciu.cursor()
 
+    #Get name, description, minutes, n_stps, and n_ingredients
     cursor.execute("""SELECT name, description, minutes, n_steps, n_ingredients 
                       FROM recipe_info WHERE recipe_id = ?""", (recipe_index,))
     main_info = cursor.fetchone()
 
+    #if a recipe doesn't come back, 404 error
     if main_info is None:
         ciu.close()
         abort(404)
 
+    #get ingredients and put them into a list
     cursor.execute("""SELECT ingredient FROM ingredients AS ing 
                       JOIN recipe_ingredients AS recing 
                       ON ing.ingredient_id = recing.ingredient_id 
                       WHERE recing.recipe_id = ?""", (recipe_index,))
     ingred_lst = [row[0] for row in cursor.fetchall()]
 
+    #get steps and put them into a list
     cursor.execute("""SELECT step_text FROM steps 
                       WHERE recipe_id = ? ORDER BY step_number""", (recipe_index,))
     step_lst = [row[0] for row in cursor.fetchall()]
 
+    #get nutrition and put it into a list
     cursor.execute("""SELECT calories, total_fat, sugar, sodium, protein, 
                       saturated_fat, carbohydrates 
                       FROM nutrition WHERE recipe_id = ?""", (recipe_index,))
