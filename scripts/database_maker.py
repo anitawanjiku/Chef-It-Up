@@ -4,7 +4,6 @@ import json
 ciu = sqlite3.connect('app/data/chefItUp.db')
 
 cursor = ciu.cursor()
-
 # recipe_info
 # Recipe_id | int
 # Name | str
