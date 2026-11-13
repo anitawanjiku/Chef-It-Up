@@ -59,33 +59,6 @@ def search():
 
     return render_template('search.html', search_bar=search_bar, results=results_lst)
 
-
-
-
-
-    # Load json data
-    #with open('/app/data/recipes_data.json') as f:
-        #recipe_lst = json.load(f)
-
-    #results = []
-    #for recipe_dict in recipe_lst:
-        # We try to figure out which attribute of the recipe to search.
-        #if filter_by != "name":
-        #     to_search = ' '.join(recipe_dict[filter_by])
-        # else: 
-        #     to_search = recipe_dict[filter_by]
-
-        # # We create the list of search terms.
-        # search_terms_lst = search_bar.lower().split(' ')
-        # for search_bar in search_terms_lst:
-        #     # We leave if the element is not found. 
-        #     if search_bar not in to_search.lower().split(' '):
-        #         break 
-        #     else: 
-        #         results.append(recipe_dict)
-    
-    
-
 @app.route("/recipe/<int:recipe_index>")
 def recipe(recipe_index):
     ciu = sqlite3.connect('data/chefItUp.db')
