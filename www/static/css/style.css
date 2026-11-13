@@ -538,8 +538,15 @@ li.tags_list {
   color: #000000;
   font-size: 14px;
   padding: 8px 16px;
-  border-radius: 50px;
+  border-radius: 50px; /* creates bubble shape */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* change color and move on hover */
+ul.tags_list li:hover {
+  background-color: #57adf4;
+  transform: translateY(-2px);
 }
 
 /* smaller div margin on large screen */
