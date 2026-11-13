@@ -47,17 +47,23 @@
   {% set nutri = recipe["nutrition"] %}
   <ul>
       <li>Calories: <span class="nutrition">{{ nutri[0] }}</span></li>
-      <li>Total fat(PDV): <span class="nutrition">{{ nutri[1] }}</span></li>
-      <li>Sugar(sugar): <span class="nutrition">{{ nutri[2] }}</span></li>
-      <li>Sodium(PDV): <span class="nutrition">{{ nutri[3] }}</span></li>
-      <li>Protein(PDV): <span class="nutrition">{{ nutri[4] }}</span></li>
-      <li>Saturated Fat(PDV): <span class="nutrition">{{ nutri[5] }}</span></li>
-      <li>Carbohydrates(PDV): <span class="nutrition">{{ nutri[6] }}</span></li>
+      <li>Total fat (PDV): <span class="nutrition">{{ nutri[1] }}</span></li>
+      <li>Sugar (sugar): <span class="nutrition">{{ nutri[2] }}</span></li>
+      <li>Sodium (PDV): <span class="nutrition">{{ nutri[3] }}</span></li>
+      <li>Protein (PDV): <span class="nutrition">{{ nutri[4] }}</span></li>
+      <li>Saturated Fat (PDV): <span class="nutrition">{{ nutri[5] }}</span></li>
+      <li>Carbohydrates (PDV): <span class="nutrition">{{ nutri[6] }}</span></li>
   </ul>
+  <p>**PDV: percentage daily value</p>
 </div>
 
 <div class="reviews">
   <h3 class="reviews">Reviews</h3>
+    {% if reviews %}
+    <p>reviews go here</p>
+    {% else %}
+    <p>No reviews yet - be the first to leave a review!</p> <!-- need to link to review form -->
+    {% endif %}
 </div>
 
 {% else %}
