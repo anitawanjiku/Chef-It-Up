@@ -18,7 +18,10 @@ No results
 {% for recipe in results %}
 
     {# name of the recipe #}
-    <p class="recipe-search-result">{{ recipe["name"] }}</p>
+    <p class="recipe-search-result">
+        <a href="{{ url_for('recipe', recipe_index=recipe['id']) }}">{{ recipe["name"] }}</a>
+        
+    </p>
 
     {# minutes to cook #}
     <p class="search-result">Time to prepare (in minutes): {{ recipe["minutes"] }}</p>
