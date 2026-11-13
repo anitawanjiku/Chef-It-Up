@@ -73,6 +73,11 @@ cursor.execute(command5)
 cursor.execute(command6)
 cursor.execute(command7)
 
+
+cursor.execute("DELETE FROM recipe_info")
+cursor.execute("DELETE FROM reviews")
+cursor.execute("DELETE FROM recipe_tags")
+cursor.execute("DELETE FROM nutrition")
 cursor.execute("DELETE FROM ingredients")
 cursor.execute("DELETE FROM recipe_ingredients")
 cursor.execute("DELETE FROM steps")
