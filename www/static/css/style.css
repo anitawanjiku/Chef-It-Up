@@ -444,11 +444,25 @@ p.search-result {
   overflow-wrap: anywhere;
 }
 
-p.recipe-search-result {
+body.light-mode a.recipe-search-result:is(:link, :visited, :hover, :active, :focus) {
   font-weight: bold;
   font-size: large;
+  color: #0D47A1;
 }
 
+body.light-mode a.recipe-search-result:hover {
+  color: #57adf4;
+}
+
+body.dark-mode a.recipe-search-result:is(:link, :visited, :hover, :active, :focus) {
+  font-weight: bold;
+  font-size: large;
+  color: #90C8F5;
+}
+
+body.dark-mode a.recipe-search-result:hover {
+  color: #167fd5;
+}
 
 /* Contact us page, prioritising mobile view ------------------------------------------------------------ */
 .contact {
