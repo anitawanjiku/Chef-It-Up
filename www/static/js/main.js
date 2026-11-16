@@ -4,7 +4,7 @@ console.log("main.js loaded - edit me in www/static/js/main.js");
 //-------------------------------------------------------------------------------------------------------------
 // JSON + AJAX to display backend ingredient of week
 /* Followed the MDN doc getData function */
-async function getData() {
+async function getIngred() {
   const url = "/ingredient";
   try {
     const response = await fetch(url);
@@ -16,6 +16,28 @@ async function getData() {
 
   } catch (error) {
     console.error("Failed to fetch ingredient:", error);
+  }
+}
+
+async function getMeal() {
+  const url = "/meals";
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    for (let i = 0; i < data.length; i++) {
+      document.querySelector(".name" + (i + 1)).textContent = data[i].name;
+      document.querySelector(".minutes" + (i + 1)).textContent = data[i].minutes;
+    }
+
+  } catch (error) {
+    console.error("Failed to fetch meal:", error);
   }
 }
 

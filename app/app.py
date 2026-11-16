@@ -15,6 +15,27 @@ def not_found(e):
 def home():
     return render_template("template.html")
 
+@app.route("/meals")
+def get_meals():
+    '''
+    This is the meal from the home page bottom. We changed it from the json and it is faster.
+    '''
+    #initialize db
+    ciu = sqlite3.connect('data/chefItUp.db')
+    cursor = ciu.cursor()
+    
+    cursor.execute("""SELECT recipe_id, name, minutes FROM recipe_info ORDER BY random() LIMIT 3""")
+
+    rec_info = []
+    for row in cursor.fetchall():
+        rec_info.append({
+            "id": row[0], "name": row[1], "minutes": row[2],
+        })
+
+    ciu.close()
+
+    return jsonify(rec_info) 
+
 @app.route("/ingredient")
 def random_ingredient():
     '''
