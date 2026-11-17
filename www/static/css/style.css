@@ -39,7 +39,8 @@ body.dark-mode hr {
 /* basic body rules */
 body {
     font-family: "Playfair Display", "Times New Roman", serif;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
+    margin: 0px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,6 +61,13 @@ div.section{
 
 p.team {
     font-weight: bold;
+}
+
+
+/* main body content - for margin + padding issues ----------------------------------------------- */
+main {
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 
 
@@ -421,7 +429,7 @@ div.form {
 /* Add a background color to the button if it is clicked on (add the .active class with JS),
  and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-  background-color: #ccc;
+  background-color: #ccccccf0;
 }
 
 /* Style the accordion panel. Note: hidden by default */
