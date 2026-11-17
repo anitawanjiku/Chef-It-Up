@@ -59,7 +59,6 @@ def random_ingredient():
 # Find recipes that match a user's search input
 @app.route("/search", methods=["GET"])
 def search():
-    #TODO implement the filters
     filter_by = request.args.get("filter-by")
     #is_vegetarian = request.args.get("vegetarian")
     #is_vegan = request.args.get("vegan")
