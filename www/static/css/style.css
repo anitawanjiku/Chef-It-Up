@@ -79,8 +79,10 @@ header {
 }
 
 /* Logo ------------------------------------------------------------------------------------------- */
-div.logo {
+div.logo, a.logo {
     background-color: #90CAF9;
+    color: #000000;
+    text-decoration: none;
     display: flex;
     align-items: center;
     padding: 5px;
