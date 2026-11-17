@@ -76,7 +76,12 @@ def search():
                     || '%' LIMIT 10;"""
     elif(filter_by == "ingredients"):
         # Query to execute ingredient search
-        query = "SELECT rin.recipe_id, rin.name, rin.minutes, rin.description FROM recipe_info AS rin JOIN (select ri.recipe_id from recipe_ingredients as ri join ingredients as ing on ri.ingredient_id = ing.ingredient_id where ingredient like '%' || ? || '%' limit 10) AS ingr ON ingr.recipe_id = rin.recipe_id GROUP BY rin.recipe_id LIMIT 10;"
+        query = "SELECT rin.recipe_id, rin.name, rin.minutes, rin.description FROM recipe_info AS rin JOIN " \
+        "(select ri.recipe_id from recipe_ingredients as ri join ingredients as ing on ri.ingredient_id = " \
+        "ing.ingredient_id where ingredient like '%' || ? || '%' limit 10) AS ingr ON ingr.recipe_id = " \
+        "rin.recipe_id GROUP BY rin.recipe_id LIMIT 10;"
+    elif(filter_by == "minutes"):
+        query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE minutes <= ? LIMIT 10;"""
     
     cursor.execute(query, (search_bar,))
 
