@@ -82,6 +82,8 @@ def search():
         "rin.recipe_id GROUP BY rin.recipe_id LIMIT 10;"
     elif(filter_by == "minutes"):
         query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE minutes <= ? LIMIT 10;"""
+    elif(filter_by == "tags"):
+        query = """SELECT ri.recipe_id, ri.name, ri.minutes, ri.description FROM recipe_info as ri JOIN recipe_tags as rt ON ri.recipe_id = rt.recipe_id WHERE rt.tag LIKE '%' || ? || '%'  GROUP BY ri.recipe_id LIMIT 10;"""
     
     cursor.execute(query, (search_bar,))
 
