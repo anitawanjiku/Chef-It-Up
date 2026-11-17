@@ -360,19 +360,25 @@ div.three_meals {
   flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin: 0px 30px;
+	margin: 0px 10px;
 }
 
 div.meal_square {
 	margin: 10px;
-    padding-inline: 10px;
+  padding-inline: 10px;
+  border: 2px solid;
+  border-radius: 4px;
 }
 
 p.ingredient {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0px, 30px;
+  margin: 0px, 10px;
+}
+
+.meal_square p {
+  text-align: center;
 }
 
 
