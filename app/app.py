@@ -57,15 +57,15 @@ def random_ingredient():
     return jsonify({"ingredient": results})
  
 # Find recipes that match a user's search input
-@app.route("/search", methods=["POST"])
+@app.route("/search", methods=["GET"])
 def search():
     #TODO implement the filters
-    #filter_by = request.form.get("filter-by")
-    #is_vegetarian = request.form.get("vegetarian")
-    #is_vegan = request.form.get("vegan")
+    #filter_by = request.args.get("filter-by")
+    #is_vegetarian = request.args.get("vegetarian")
+    #is_vegan = request.args.get("vegan")
 
     # Get the search text from the search bar
-    search_bar = request.form.get("search-bar")
+    search_bar = request.args.get("search-bar", "").strip()
 
     # Connect to the database
     ciu = sqlite3.connect('data/chefItUp.db')
