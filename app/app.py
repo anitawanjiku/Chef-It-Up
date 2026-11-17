@@ -5,11 +5,11 @@ import sqlite3
 
 app = Flask(__name__, static_folder="../www/static")
 
-@app.errorhandler(404)
-# inbuilt function which takes error as parameter
+ # inbuilt function which takes error as parameter
+@app.errorhandler(404) 
 def not_found(e):
-# defining function
-  return render_template("404.html")
+    # defining function
+    return render_template("404.html")
 
 @app.route("/template")
 def home():
@@ -59,8 +59,7 @@ def random_ingredient():
 # Find recipes that match a user's search input
 @app.route("/search", methods=["GET"])
 def search():
-    #TODO implement the filters
-    #filter_by = request.args.get("filter-by")
+    filter_by = request.args.get("filter-by")
     #is_vegetarian = request.args.get("vegetarian")
     #is_vegan = request.args.get("vegan")
 
@@ -71,8 +70,19 @@ def search():
     ciu = sqlite3.connect('data/chefItUp.db')
     cursor = ciu.cursor()
 
-    # Query to execute
-    query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE name LIKE '%' || ? || '%' LIMIT 10;"""
+    if(filter_by == "name"):
+        # Query to execute name
+        query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE name LIKE '%' || ? 
+                    || '%' LIMIT 10;"""
+    elif(filter_by == "ingredients"):
+        # Query to execute ingredient search
+        query = "SELECT rin.recipe_id, rin.name, rin.minutes, rin.description FROM recipe_info AS rin JOIN " \
+        "(select ri.recipe_id from recipe_ingredients as ri join ingredients as ing on ri.ingredient_id = " \
+        "ing.ingredient_id where ingredient like '%' || ? || '%' limit 10) AS ingr ON ingr.recipe_id = " \
+        "rin.recipe_id GROUP BY rin.recipe_id LIMIT 10;"
+    elif(filter_by == "minutes"):
+        query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE minutes <= ? LIMIT 10;"""
+    
     cursor.execute(query, (search_bar,))
 
     # Turn each row into a dict so the template can use names like recipe["name"]
