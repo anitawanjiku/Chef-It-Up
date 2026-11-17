@@ -53,21 +53,25 @@ def random_ingredient():
 
     return jsonify({"ingredient": results})
  
-
+# Find recipes that match a user's search input
 @app.route("/search", methods=["POST"])
 def search():
+    #TODO implement the filters
     #filter_by = request.form.get("filter-by")
     #is_vegetarian = request.form.get("vegetarian")
     #is_vegan = request.form.get("vegan")
+
+    # Get the search text from the search bar
     search_bar = request.form.get("search-bar")
 
-
+    # Connect to the database
     ciu = sqlite3.connect('data/chefItUp.db')
     cursor = ciu.cursor()
+
     query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE name LIKE '%' || ? || '%' LIMIT 10;"""
     cursor.execute(query, (search_bar,))
 
-    
+    # Turn each row into a dict so the template can use names like recipe["name"]
     results_lst = []
     for row in cursor.fetchall():
         rec_info = {
@@ -78,6 +82,7 @@ def search():
 
     ciu.close()
 
+    # Show the results page; "id" is used to link each result to its recipe page
     return render_template('search.html', search_bar=search_bar, results=results_lst)
 
 @app.route("/recipe/<int:recipe_index>")
