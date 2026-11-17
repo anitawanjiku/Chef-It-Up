@@ -24,8 +24,10 @@ def get_meals():
     ciu = sqlite3.connect('data/chefItUp.db')
     cursor = ciu.cursor()
     
+    #query to execute
     cursor.execute("""SELECT recipe_id, name, minutes FROM recipe_info ORDER BY random() LIMIT 3""")
 
+    #select id, name, and minutes to webpage
     rec_info = []
     for row in cursor.fetchall():
         rec_info.append({
@@ -45,6 +47,7 @@ def random_ingredient():
     ciu = sqlite3.connect('data/chefItUp.db')
     cursor = ciu.cursor()
     
+    #query to execute
     cursor.execute("""select ingredient from ingredients order by random() limit 1""")
     results = cursor.fetchall()
 
@@ -68,6 +71,7 @@ def search():
     ciu = sqlite3.connect('data/chefItUp.db')
     cursor = ciu.cursor()
 
+    # Query to execute
     query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE name LIKE '%' || ? || '%' LIMIT 10;"""
     cursor.execute(query, (search_bar,))
 
@@ -77,7 +81,6 @@ def search():
         rec_info = {
             "id" : row[0], "name" : row[1], "minutes" : row[2], "description" : row[3],
             }
-
         results_lst.append(rec_info)
 
     ciu.close()
