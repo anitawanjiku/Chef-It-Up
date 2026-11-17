@@ -88,7 +88,7 @@ div.logo, a.logo {
     padding: 5px;
     justify-content: center;
     gap: 10px;
-    flex: 1 1 auto;
+    /* flex: 1 1 auto; */
     min-width: 0;
 }
 
@@ -151,6 +151,11 @@ input.searchbar {
 
 /* From Uiverse.io by 3bdel3ziz-T */ 
 /* light vs dark mode toggle ---------------------------------------------------------------------------- */
+
+div.theme-toggle {
+  padding-right: 20px;
+}
+
 /* The switch container */
 .switch {
     --transition: 300ms;
@@ -163,7 +168,7 @@ input.searchbar {
     position: relative;
     display: flex;
     align-items: center;
-    width: 48px;
+    width: 54px;
     height: fit-content;
     box-sizing: border-box;
     background-color: var(--color-dark);
@@ -308,13 +313,13 @@ input.searchbar {
     background-color: #90CAF9;
 }
 
-.dropdown {
+div.dropdown {
     position: relative;
     display: flex;
     flex-direction: column;
     /*Changed from center and fixes the hamburguer icon position. */
     align-items: center;
-    padding-left: 10px;
+    padding-left: 20px;
     gap: 2px;
     flex-shrink: 0;
 }
