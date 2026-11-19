@@ -56,15 +56,24 @@ def random_ingredient():
 
     return jsonify({"ingredient": results})
  
+# Number of results to display per page
+per_page = 10
+
 # Find recipes that match a user's search input
 @app.route("/search", methods=["GET"])
 def search():
-    filter_by = request.args.get("filter-by")
+    filter_by = request.args.get("filter-by", "name")
     #is_vegetarian = request.args.get("vegetarian")
     #is_vegan = request.args.get("vegan")
 
     # Get the search text from the search bar
     search_bar = request.args.get("search-bar", "").strip()
+
+    # Get page number from URL, default to 1
+    page= max(request.args.get("page", 1, type=int), 1)
+
+    # Skip the results from earlier pages (page 2 skips 10, page 3 skips 20)
+    offset = (page - 1) * per_page
 
     # Connect to the database
     ciu = sqlite3.connect('data/chefItUp.db')
@@ -73,25 +82,30 @@ def search():
     if(filter_by == "name"):
         # Query to execute name
         query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE name LIKE '%' || ? 
-                    || '%' LIMIT 10;"""
+                    || '%' LIMIT ? OFFSET ?;"""
     elif(filter_by == "ingredients"):
         # Query to execute ingredient search
         query = "SELECT rin.recipe_id, rin.name, rin.minutes, rin.description FROM recipe_info AS rin JOIN " \
         "(select ri.recipe_id from recipe_ingredients as ri join ingredients as ing on ri.ingredient_id = " \
-        "ing.ingredient_id where ingredient like '%' || ? || '%' limit 10) AS ingr ON ingr.recipe_id = " \
-        "rin.recipe_id GROUP BY rin.recipe_id LIMIT 10;"
+        "ing.ingredient_id where ingredient like '%' || ? || '%') AS ingr ON ingr.recipe_id = " \
+        "rin.recipe_id GROUP BY rin.recipe_id LIMIT ? OFFSET ?;"
     elif(filter_by == "minutes"):
-        query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE minutes <= ? LIMIT 10;"""
+        query = """SELECT recipe_id, name, minutes, description FROM recipe_info WHERE minutes <= ? LIMIT ? OFFSET ?;"""
     elif(filter_by == "tags"):
         query = """SELECT ri.recipe_id, ri.name, ri.minutes, ri.description FROM recipe_info as ri JOIN 
         recipe_tags as rt ON ri.recipe_id = rt.recipe_id WHERE rt.tag LIKE '%' || ? || '%'  GROUP BY 
-        ri.recipe_id LIMIT 10;"""
+        ri.recipe_id LIMIT ? OFFSET ?;"""
     
-    cursor.execute(query, (search_bar,))
+    cursor.execute(query, (search_bar, per_page + 1, offset))
+    rows = cursor.fetchall()
+
+    # If an 11th row came back, there's another page; only show the first 10
+    has_next = len(rows) > per_page
+    rows = rows[:per_page]
 
     # Turn each row into a dict so the template can use names like recipe["name"]
     results_lst = []
-    for row in cursor.fetchall():
+    for row in rows:
         rec_info = {
             "id" : row[0], "name" : row[1], "minutes" : row[2], "description" : row[3],
             }
@@ -100,7 +114,7 @@ def search():
     ciu.close()
 
     # Show the results page; "id" is used to link each result to its recipe page
-    return render_template('search.html', search_bar=search_bar, results=results_lst)
+    return render_template('search.html', search_bar=search_bar, results=results_lst, page=page,has_next=has_next, filter_by=filter_by)
 
 @app.route("/recipe/<int:recipe_index>")
 def recipe(recipe_index):

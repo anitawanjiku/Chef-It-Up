@@ -33,6 +33,19 @@ No results
 
 {% endfor %}
 
+{# Previous / Next page links #}
+<nav class="pagination">
+  {% if page > 1 %}
+    <a href="?search-bar={{ search_bar|urlencode }}&page={{ page - 1 }}">← Previous</a>
+  {% endif %}
+
+  <span>Page {{ page }}</span>
+
+  {% if has_next %}
+    <a href="?search-bar={{ search_bar|urlencode }}&page={{ page + 1 }}">Next →</a>
+  {% endif %}
+</nav>
+
 {% endif %}
 
 {% endblock %}
