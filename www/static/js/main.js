@@ -33,7 +33,7 @@ async function getMeal() {
 
     for (let i = 0; i < data.length; i++) {
       document.querySelector(".name" + (i + 1)).textContent = data[i].name;
-      document.querySelector(".minutes" + (i + 1)).textContent = data[i].minutes;
+      document.querySelector(".minutes" + (i + 1)).textContent = data[i].minutes + " minutes";
     }
 
   } catch (error) {
