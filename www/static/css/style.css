@@ -66,7 +66,7 @@ p.team {
 
 /* main body content - for margin + padding issues ----------------------------------------------- */
 main {
-  padding: 0 1rem;
+  padding: 0 1rem 1rem;
   margin: 0 auto;
 }
 
@@ -485,6 +485,33 @@ body.dark-mode a.recipe-search-result:is(:link, :visited, :hover, :active, :focu
 body.dark-mode a.recipe-search-result:hover {
   color: #167fd5;
 }
+
+/* pagination styling */
+nav.pagination {
+  margin: 1.5rem 0px 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+body.light-mode a.pagination:is(:link, :visited, :hover, :active, :focus) {
+  font-weight: bold;
+  color: #0D47A1;
+}
+
+body.light-mode a.pagination:hover {
+  color: #57adf4;
+}
+
+body.dark-mode a.pagination:is(:link, :visited, :hover, :active, :focus) {
+  font-weight: bold;
+  color: #90C8F5;
+}
+
+body.dark-mode a.pagination:hover {
+  color: #167fd5;
+}
+
 
 /* Contact us page, prioritising mobile view ------------------------------------------------------------ */
 .contact {
