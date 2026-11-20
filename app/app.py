@@ -62,7 +62,7 @@ per_page = 10
 # Find recipes that match a user's search input
 @app.route("/search", methods=["GET"])
 def search():
-    filter_by = request.args.get("filter-by", "name")
+    filter_by = request.args.get("filter-by", " ")
     #is_vegetarian = request.args.get("vegetarian")
     #is_vegan = request.args.get("vegan")
 
