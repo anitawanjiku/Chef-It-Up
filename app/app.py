@@ -49,6 +49,7 @@ def random_ingredient():
     
     #query to execute
     cursor.execute("""select ingredient from ingredients order by random() limit 1""")
+
     results = cursor.fetchall()
 
     ciu.commit()
@@ -62,7 +63,7 @@ per_page = 10
 # Find recipes that match a user's search input
 @app.route("/search", methods=["GET"])
 def search():
-    filter_by = request.args.get("filter-by", " ")
+    filter_by = request.args.get("filter-by", "name")
     #is_vegetarian = request.args.get("vegetarian")
     #is_vegan = request.args.get("vegan")
 
